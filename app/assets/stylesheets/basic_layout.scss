@@ -1,0 +1,33 @@
+body {
+  padding-top: 70px;
+}
+
+div.input_row, div.search_row {
+  margin-bottom: 1em;
+}
+
+.register_button {
+  margin-left: 5px;
+}
+
+th .current {
+  padding-right: 18px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+th .asc {
+  background-image: image-url('arrow_up.png');
+}
+
+th .desc {
+  background-image: image-url('arrow_down.png');
+}
+
+tr#new_macro_time_frame_row td {
+  background-color: #F2F2F2;
+}
+.form-horizontal {
+  background-color: white;
+  padding: 5px;
+}
