@@ -10,7 +10,6 @@
               <th>Name</th>
               <th>Attachment</th>
               <th>Shortcut</th>
-              <th>Category</th>
               <th colspan="2">Aktionen</th>
             </tr>
           </thead>
@@ -21,7 +20,6 @@
                 <td><%= room.name %></td>
                 <td><%= room.attachment.url %></td>
                 <td><%= room.shortcut %></td>
-                <td><%= room.category %></td>
                 <td><%= link_to 'Edit', edit_room_path(room) %></td>
                 <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>

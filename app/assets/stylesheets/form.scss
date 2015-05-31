@@ -1,0 +1,122 @@
+/*FORM SPECIFIC*/
+.new_user {
+  width: 37%;
+  margin: 10% auto 4% auto;
+  position: relative;
+  height: 300px;
+}
+.user_registration {
+  width: 50%;
+  margin: 10% auto 4% auto;
+  position: relative;
+  height: 400px;
+}
+
+.new_room_form {
+  width: 40%;
+  margin: 10% auto 4% auto;
+  position: relative;
+  height: 400px;
+}
+/**/
+#error_explanation {
+  border: 1px solid #bbbbbb;
+  list-style: none;
+  margin-bottom: 16px;
+  width: 100%;
+  background: #bbbbbb;
+}
+
+
+
+/*DEFAULT*/
+
+
+
+form {
+  background-color: #006161;
+  border-top: 15px solid #AF7500;
+  margin: 10% auto 4% auto;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 2%;
+  color: #BBBBBB;
+}
+
+
+form > h2 {
+  text-align: center;
+  color: #fff;
+  font-size: 2.8em;
+  margin: 0px auto 5% auto;
+  width: 30%;
+}
+
+form li {
+  border: 1px solid #bbbbbb;
+  list-style: none;
+  margin-bottom: 16px;
+  width: 100%;
+  background: #bbbbbb;
+}
+form input[type="text"], input[type="password"], input[type="email"] {
+  font-family: 'Open Sans', sans-serif;
+  width: 90%;
+  padding: 0.5em 2em 0.5em 1em;
+  color: #fff;
+  font-size: 20px;
+  outline: none;
+  background: none;
+  border: none;
+}
+form .lock {
+  height: 40px;
+  width: 40px;
+  display: block;
+  float: left;
+  margin: 5px -11px 0px 0px;
+  font-size: 2.2em;
+  padding: 2px 10px;
+  text-decoration: none;
+}
+form .lock:hover {
+  background-color: transparent;
+}
+
+form .form-actions {
+  margin: 30px 7px;
+}
+form .form-actions h3, .form-actions h3 a{
+  color: #fff;
+  font-size: 15px;
+  float: right;
+  font-weight: 600;
+  margin-top: 19px;
+}
+form .form-actions h3 a:hover{
+  background: #bbbbbb;
+}
+form .form-actions input[type="submit"] {
+  float: left;
+  font-size: 18px;
+  display: inline-block;
+  font-weight: 600;
+  color: #615F5F;
+  transition: 0.1s all;
+  -webkit-transition: 0.1s all;
+  -moz-transition: 0.1s all;
+  -o-transition: 0.1s all;
+  cursor: pointer;
+  outline: none;
+  padding: 15px 10px;
+  margin-top: 3px;
+  font-family: 'Open Sans', sans-serif;
+  background: #222;
+  width: 45%;
+  border: 1px solid #222;
+}
+form .form-actions input[type="submit"]:hover {
+  background: #bbbbbb;
+  border: 1px solid #bbbbbb;
+}

@@ -11,13 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529093832) do
-
-  create_table "categories", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20150531141211) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -37,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150529093832) do
     t.text     "service"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "room"
   end
 
   add_index "events", ["company_id"], name: "index_events_on_company_id"
@@ -45,14 +40,12 @@ ActiveRecord::Schema.define(version: 20150529093832) do
     t.string   "name"
     t.integer  "attachment_id"
     t.string   "shortcut"
-    t.integer  "category_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "attachment"
   end
 
   add_index "rooms", ["attachment_id"], name: "index_rooms_on_attachment_id"
-  add_index "rooms", ["category_id"], name: "index_rooms_on_category_id"
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                             null: false

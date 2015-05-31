@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem "simple_calendar", "~> 1.1.0"
+gem 'mini_magick'
 gem 'devise'
 gem 'carrierwave'
 gem 'bootstrap-sass', '~> 3.2.0'

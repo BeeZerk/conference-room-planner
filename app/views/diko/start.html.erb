@@ -8,15 +8,15 @@
             </div>
             <div class="linha">
         <% end %>
-
+        <a href="<%= url_for :controller => 'diko', :action => 'month', :room_id => room.id %>">
         <% if bigTiles == 0 %>
             <div title = "<%= room.name %>" class="tile tileLargo" style="background-size: 100% 100%; background-image: url('<%=  room.attachment.url%>')"></div>
             <% bigTiles = 8%>
         <% else %>
-            <div title = "<%= room.name %>" class="tile"  style="background-size: 100% 100%; background-image: url('<%=  room.attachment.url%>')"></div>
+            <div title = "<%= room.name %>" class="tile"  style="background-size: 100% 100%; background-image: url('<%=  room.attachment.thumb.url%>')"></div>
             <% bigTiles -= 1%>
         <% end %>
-
+        </a>
 
         <%count += 1%>
     <% end%>

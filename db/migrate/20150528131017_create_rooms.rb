@@ -4,7 +4,6 @@ class CreateRooms < ActiveRecord::Migration
       t.string :name
       t.references :attachment, index: true, foreign_key: true
       t.string :shortcut
-      t.references :category, index: true, foreign_key: true
 
       t.timestamps null: false
     end
