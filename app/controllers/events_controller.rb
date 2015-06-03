@@ -17,6 +17,12 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+
+  def new_small
+    @event = Event.new
+    render :layout => false
+  end
+
   # GET /events/1/edit
   def edit
   end

@@ -12,10 +12,7 @@ class DikoController < ApplicationController
 
 
   def month
-    @events = Event.all
-
-
-    # @events = Event.find_by_room(@room)
+    @events = Event.where(:room => @room)
   end
 
   private
