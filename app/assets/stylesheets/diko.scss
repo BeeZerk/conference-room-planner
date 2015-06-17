@@ -1,15 +1,10 @@
 // Place all the styles related to the Diko controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-  font-family: Century;
-
-}
 
 a {
   text-decoration: none;
 }
-
 
 td {
   -webkit-touch-callout: none;
@@ -42,6 +37,15 @@ td {
 .tileLargo {
   height: 395px;
   width: 395px;
+  display: table;
+}
+
+.tile-title {
+  font-size: 600%;
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  text-align: center;
 }
 
 

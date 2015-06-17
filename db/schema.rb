@@ -11,41 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150531141211) do
+ActiveRecord::Schema.define(version: 20150617145917) do
 
-  create_table "companies", force: :cascade do |t|
+  create_table "calendars", force: :cascade do |t|
     t.string   "name"
+    t.string   "color"
+    t.string   "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "owner_id"
   end
+
+  add_index "calendars", ["owner_id"], name: "index_calendars_on_owner_id"
+
+  create_table "calendars_users", id: false, force: :cascade do |t|
+    t.integer "calendar_id"
+    t.integer "user_id"
+  end
+
+  add_index "calendars_users", ["calendar_id", "user_id"], name: "index_calendars_users_on_calendar_id_and_user_id"
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
     t.string   "note"
     t.datetime "starts_at"
     t.datetime "ends_at"
-    t.integer  "datejump"
-    t.integer  "company_id"
-    t.integer  "participant"
-    t.boolean  "extern"
-    t.text     "service"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "room"
+    t.integer  "recur_every"
+    t.integer  "creator_id"
+    t.integer  "calendar_id"
   end
 
-  add_index "events", ["company_id"], name: "index_events_on_company_id"
+  add_index "events", ["calendar_id"], name: "index_events_on_calendar_id"
+  add_index "events", ["creator_id"], name: "index_events_on_creator_id"
 
-  create_table "rooms", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "attachment_id"
-    t.string   "shortcut"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.string   "attachment"
+  create_table "events_users", id: false, force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "user_id"
   end
 
-  add_index "rooms", ["attachment_id"], name: "index_rooms_on_attachment_id"
+  add_index "events_users", ["event_id", "user_id"], name: "index_events_users_on_event_id_and_user_id"
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                             null: false

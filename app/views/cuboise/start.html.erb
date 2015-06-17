@@ -1,0 +1,32 @@
+<div class="pagina">
+
+    <% count = 0%>
+    <% bigTiles = 0%>
+    <div class="linha">
+    <% @calendars.each do |calendar| %>
+        <% if (count%5 == 0) %>
+            </div>
+            <div class="linha">
+        <% end %>
+        <a href="<%= url_for :controller => 'calendar', :action => 'month', :token => calendar.token %>">
+        <% if bigTiles == 0 %>
+            <div title = "<%= calendar.name %>" class="tile tileLargo" style="background-color:<%=  calendar.color%>">
+                <span class="tile-title"><%= calendar.name %></span>
+            </div>
+            <% bigTiles = 8%>
+        <% else %>
+            <div title = "<%= calendar.name %>" class="tile"  style="background-color:<%=  calendar.color%>">
+                <span class="tile-title"><%= calendar.name %></span>
+            </div>
+            <% bigTiles -= 1%>
+        <% end %>
+        </a>
+
+        <%count += 1%>
+    <% end%>
+    <% if (count%5 > 0) %>
+        </div>
+    <% end%>
+
+</div>
+

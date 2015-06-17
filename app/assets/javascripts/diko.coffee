@@ -5,7 +5,6 @@ $(document).ready ->
 	$('.day').dblclick ->
 		td = $(this)
 
-
 		overflow = td.find('div.new_overflow')
 		$('div.new_overflow').not(overflow).hide()
 		bottomTop = td.offset().top - 70

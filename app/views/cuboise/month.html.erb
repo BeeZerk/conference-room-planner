@@ -1,0 +1,20 @@
+
+<%= month_calendar day_names: "date.day_names",
+                   header: {class: "calendar-header"},
+                   table: {class: "table table-bordered"},
+                   tr: {class: "calendar-row"},
+                   th: {class: "date-title"},
+
+                   events: @events do |date, meetings| %>
+    <div class="date">
+        <%= date.mday %>
+    </div>
+
+    <div class="new_overflow">
+    </div>
+    <% meetings.each do |meeting| %>
+        <div>
+            <%= meeting.title %>
+        </div>
+    <% end %>
+<% end %>
