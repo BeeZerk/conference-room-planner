@@ -25,4 +25,22 @@ $(document).ready ->
 				alert 'Es ist ein Fehler aufgetreten'
 				return
 		return
+	$('.tile').each (index) ->
+		elem = $(this)
+		elem.ready ->
+			rgbBgColor = elem.css('backgroundColor')
+			color = rgbBgColor.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
+			brightness = 1
+			r = color[1]
+			g = color[2]
+			b = color[3]
+			ir = Math.floor((255 - r) * brightness)
+			ig = Math.floor((255 - g) * brightness)
+			ib = Math.floor((255 - b) * brightness)
+			elem.children('.tile-title').css 'color', 'rgb(' + ir + ',' + ig + ',' + ib + ')'
+			elem.css 'border', '1px solid rgb(' + ir + ',' + ig + ',' + ib + ')'
+
+
+			return
+		return
 	return

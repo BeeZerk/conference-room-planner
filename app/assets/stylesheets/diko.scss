@@ -32,12 +32,15 @@ td {
   float: left;
   margin: 5px 5px 0 0;
   padding: 2px;
+  display: table;
+  background-color: white;
+  position: relative;
 }
 
 .tileLargo {
   height: 395px;
   width: 395px;
-  display: table;
+
 }
 
 .tile-title {

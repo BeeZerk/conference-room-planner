@@ -1,0 +1,26 @@
+
+<% if @new_calendar.errors.present? %>
+    <%= render 'application/validation_errors', object: @new_calendar %>
+<% end %>
+<%= form_for @new_calendar, :url => calendar_fast_create_path(@new_calendar), html: {class: 'form-horizontal'} do |f| %>
+    <div class="form-group">
+        <%= f.label :name, class: 'control-label col-xs-2' %>
+        <div class="col-xs-10">
+            <%= f.text_field :name, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :color, class: 'control-label col-xs-2' %>
+        <div class="col-xs-10">
+            <%= f.input :color, input_html: {class: 'colorpicker'},class: 'form-control' %>
+        </div>
+    </div>
+    <!--<%= label_tag 'Name', nil, class: 'control-label col-xs-4' %>-->
+    <!--<div class="col-xs-4">-->
+        <!--<%= text_field_tag :phonenumber, nil, class: 'form-control' %>-->
+    <!--</div>-->
+    <!--<div class="col-xs-12">-->
+        <!--<%= submit_tag t('buttons.save'), class: 'btn btn-primary' %>-->
+    <!--</div>-->
+<!--</form>-->
+<% end %>

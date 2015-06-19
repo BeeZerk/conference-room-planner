@@ -1,2 +1,4 @@
 de:
+  buttons:
+    save: "Speichern"
   invalid_calendar: "Der Kalender existiert nicht!"
