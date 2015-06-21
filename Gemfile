@@ -1,4 +1,10 @@
 source 'https://rubygems.org'
+
+
+gem 'bootstrap-colorpicker-rails', :require => 'bootstrap-colorpicker-rails',
+    :git => 'git://github.com/alessani/bootstrap-colorpicker-rails.git'
+
+
 gem "simple_calendar", "~> 1.1.0"
 gem 'mini_magick'
 gem 'devise'

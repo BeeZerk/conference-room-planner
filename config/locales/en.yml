@@ -1,4 +1,6 @@
 en:
-  buttons:
-      save: "Save"
+  form:
+    buttons:
+        cancel: "Cancel"
+        save: "Save"
   invalid_calendar: "This calendar was not found!"

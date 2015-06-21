@@ -15,12 +15,9 @@ class User < ActiveRecord::Base
     Calendar.create(
                 name: "My Calendar",
                 color: "#323299",
-                owner_id: self.id,
-                token: generate_unique_calendar_token
+                owner_id: self.id
     )
   end
 
-  def generate_unique_calendar_token
-    SecureRandom.base64(24)
-  end
+
 end

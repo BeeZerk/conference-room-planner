@@ -34,3 +34,23 @@ tr#new_macro_time_frame_row td {
   background-color: white;
   padding: 5px;
 }
+
+a {
+  text-decoration: none;
+}
+
+td {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.right {
+  float: right
+}
+.left {
+  float: left
+}

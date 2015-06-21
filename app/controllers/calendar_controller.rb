@@ -23,8 +23,10 @@ class CalendarController < ApplicationController
 
   def fast_create
     @new_calendar = Calendar.new(calendar_params)
-
+    @new_calendar.owner_id = current_user.id
     if @new_calendar.save
+
+
       redirect_to calendar_path
     else
       render :index
