@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :calendars
 
 
+
+  before_save do
+    self.active = TRUE #todo: DEVELOPMENT
+  end
   after_create :create_calendar
 
   private

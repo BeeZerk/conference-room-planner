@@ -1,0 +1,21 @@
+.navigation-wrapper {
+  width: 20%;
+  position: absolute;
+  height: 100%;
+  background-color: #00CFC0;
+  float: left;
+  .profile {
+    width: 80%;
+    padding: 5px;
+    text-align: center;
+    margin: 5px auto;
+  }
+  .profile-image {
+    border-radius: 45px;
+  }
+  .profile-name {
+    color: white;
+    font-size: 15pt;
+  }
+}
+

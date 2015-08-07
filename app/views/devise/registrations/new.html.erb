@@ -1,23 +1,32 @@
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {class: 'user_registration'}) do |f| %>
-    <h2>Registrieren</h2>
-    <%= devise_error_messages! %>
-    <li>
-      <%= f.email_field :email, autofocus: true, placeholder: "Email"  %>
-      <a class="lock glyphicon glyphicon-user" aria-hidden="true"></a>
-    </li>
 
-    <li>
-      <%= f.password_field :password, autocomplete: "off", placeholder: "Passwort" %>
-      <a class="lock glyphicon glyphicon-lock" aria-hidden="true"></a>
-    </li>
+<div class="loginBox">
+    <header>
+        <img src="<%= asset_path( 'cuboise.png' ) %>" />
+        <h1><%= t('register_title')%></h1>
+    </header>
 
-    <li>
-      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Passwort wiederholen" %>
-      <a class="lock glyphicon glyphicon-lock" aria-hidden="true"></a>
-    </li>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {class: 'user_registration'}) do |f| %>
+        <%= devise_error_messages! %>
+        <div class="form-group">
+            <%= f.text_field :username, autofocus: true, placeholder: t('model.user.attribute.username'), class: 'form-control'  %>
+        </div>
 
-    <div class="form-actions">
-      <%= f.submit "Registrieren" %>
-    </div>
-<% end %>
+        <div class="form-group">
+            <%= f.email_field :email, placeholder: t('model.user.attribute.email'), class: 'form-control'  %>
+        </div>
 
+        <div class="form-group">
+            <%= f.password_field :password, autocomplete: "off", placeholder: t('password'), class: 'form-control'  %>
+        </div>
+
+        <div class="form-group">
+            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: t('password_repeat'), class: 'form-control'  %>
+        </div>
+
+        <%= f.submit t('register_button'), class: 'btn btn-primary pull-right' %>
+    <% end %>
+
+    <footer>
+        <%= link_to t('login'), root_path %>
+    </footer>
+</div>

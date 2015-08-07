@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require bootstrap-colorpicker
+//= require holder
 //= require_tree .

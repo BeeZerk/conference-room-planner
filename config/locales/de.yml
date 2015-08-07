@@ -2,3 +2,17 @@ de:
   buttons:
     save: "Speichern"
   invalid_calendar: "Der Kalender existiert nicht!"
+  forgot_password: "Passwort vergessen?"
+  login: "Login"
+  email: "Email"
+  password: "Passwort"
+  page_title: "Cuboise"
+  register: "Jetzt Registrieren!"
+  register_title: "Registrieren"
+  model:
+    user:
+      attribute:
+        username: "Username"
+        email: "Email"
+  password_repeat: "Wiederholen"
+  register_button: "Register"

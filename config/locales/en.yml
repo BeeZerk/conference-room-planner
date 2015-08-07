@@ -4,3 +4,17 @@ en:
         cancel: "Cancel"
         save: "Save"
   invalid_calendar: "This calendar was not found!"
+  login: Login
+  forgot_password: "Reset password"
+  email: "Email"
+  password: "Password"
+  page_title: "Cuboise"
+  register: "Register now!"
+  register_title: "Register"
+  model:
+    user:
+      attribute:
+        username: "Username"
+        email: "Email"
+  password_repeat: "Repeat password"
+  register_button: "Sign up"

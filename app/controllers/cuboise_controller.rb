@@ -1,8 +1,12 @@
 class CuboiseController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :home
 
   def index
+  end
+
+  def dashboard
+
   end
 
   def start
