@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150803073832) do
+ActiveRecord::Schema.define(version: 20150813144829) do
 
   create_table "calendars", force: :cascade do |t|
     t.string   "name"
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 20150803073832) do
     t.string   "note"
     t.datetime "starts_at"
     t.datetime "ends_at"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "recur_every"
     t.integer  "creator_id"
     t.integer  "calendar_id"
@@ -53,9 +53,21 @@ ActiveRecord::Schema.define(version: 20150803073832) do
 
   add_index "events_users", ["event_id", "user_id"], name: "index_events_users_on_event_id_and_user_id"
 
+  create_table "profiles", force: :cascade do |t|
+    t.string   "username",   null: false
+    t.string   "image"
+    t.string   "cover"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
+
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
@@ -68,12 +80,12 @@ ActiveRecord::Schema.define(version: 20150803073832) do
     t.string   "last_sign_in_ip"
     t.boolean  "admin",                  default: false
     t.string   "attachment"
-    t.string   "username"
-    t.string   "image"
     t.boolean  "active",                 default: false
+    t.integer  "profile_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["profile_id"], name: "index_users_on_profile_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

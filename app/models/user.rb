@@ -1,19 +1,29 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_one :profile
+  accepts_nested_attributes_for :profile
   has_and_belongs_to_many :events
   has_and_belongs_to_many :calendars
 
 
 
+  #######################################
+  ### Callbacks
+  #######################################
   before_save do
     self.active = TRUE #todo: DEVELOPMENT
   end
-  after_create :create_calendar
 
+  #######################################
+  ### Validation
+  #######################################
+
+  #######################################
+  ### Methods
+  #######################################
   private
   def create_calendar
     Calendar.create(
@@ -22,6 +32,7 @@ class User < ActiveRecord::Base
                 owner_id: self.id
     )
   end
+
 
 
 end

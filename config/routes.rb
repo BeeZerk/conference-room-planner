@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+
   resources :events
   devise_for :users, controllers: {sessions: 'sessions'}, :skip => [:sessions]
+
+  match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
   root :to => 'cuboise#dashboard'
 
   # get 'dashboard' => 'cuboise#dashboard'
@@ -19,5 +22,11 @@ Rails.application.routes.draw do
   ######################################################
 
   post 'calendar/fast_create' => 'calendar#fast_create', as: 'calendar_fast_create'
+
+  ######################################################
+  ###################### Profile / user
+  ######################################################
+  resources :profiles
+  get 'profile/:slug' => 'profiles#show', as: 'visit_profile'
 end
 

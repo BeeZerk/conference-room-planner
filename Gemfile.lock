@@ -1,10 +1,3 @@
-GIT
-  remote: git://github.com/alessani/bootstrap-colorpicker-rails.git
-  revision: a860df0e5c5bba85467665db25892a7e71e03129
-  specs:
-    bootstrap-colorpicker-rails (0.3.1)
-      railties (>= 3.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -43,6 +36,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    animate-rails (1.0.8)
+      rails
     arel (6.0.0)
     autoprefixer-rails (5.1.7)
       execjs
@@ -81,6 +76,8 @@ GEM
     eventmachine (1.0.7)
     execjs (2.5.2)
     ffi (1.9.10)
+    font-awesome-rails (4.4.0.0)
+      railties (>= 3.2, < 5.0)
     formatador (0.2.5)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
@@ -153,6 +150,9 @@ GEM
       sprockets-rails
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
+    rails-dev-tweaks (1.2.0)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
     rails-dom-testing (1.0.6)
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
@@ -215,12 +215,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  animate-rails
   autoprefixer-rails
-  bootstrap-colorpicker-rails!
   bootstrap-sass (~> 3.2.0)
   carrierwave
   coffee-rails (~> 4.1.0)
   devise
+  font-awesome-rails
   guard (>= 2.2.2)
   guard-livereload
   holder_rails
@@ -230,6 +231,7 @@ DEPENDENCIES
   pg
   rack-livereload
   rails (= 4.2.1.rc3)
+  rails-dev-tweaks (~> 1.1)
   rb-fsevent
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

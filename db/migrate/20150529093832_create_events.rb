@@ -11,7 +11,7 @@ class CreateEvents < ActiveRecord::Migration
       t.boolean :extern
       t.text :service
 
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end

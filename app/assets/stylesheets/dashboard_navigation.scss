@@ -1,21 +1,117 @@
-.navigation-wrapper {
-  width: 20%;
-  position: absolute;
+.wrapper>.aside .aside-inner {
+  padding-top: 55px;
   height: 100%;
-  background-color: #00CFC0;
-  float: left;
-  .profile {
-    width: 80%;
-    padding: 5px;
-    text-align: center;
-    margin: 5px auto;
+  width: 220px;
+  overflow: hidden;
+
+  @media only screen and (min-width: 1025px)  {
+    .sidebar{
+      margin-right: -17px;
+      overflow-y: scroll;
+    }
   }
-  .profile-image {
-    border-radius: 45px;
+  .sidebar {
+
+    height: 100%;
+    padding-bottom: 20px;
+    background-color: #fff;
+    overflow-x: hidden;
+
+    >.nav {
+      position: relative;
+      a{
+        background-color: #fff !important;
+      }
+      a:hover {
+        background-color: #fff !important;
+      }
+      .sidebar-subnav {
+        .sidebar-subnav-header {
+          color: #515253;
+          display: none;
+          padding: 10px 20px;
+          font-weight: 700;
+        }
+        >li {
+
+          border-left: 0!important;
+          >a {
+            display: block;
+            position: relative;
+            padding: 10px 20px 10px 53px;
+            font-weight: 400;
+            background-color: transparent!important;
+            color: #515253;
+          }
+        }
+      }
+      .label {
+        margin: 2px 0 0;
+      }
+      >.nav-heading {
+        white-space: nowrap;
+        padding: 12px 15px;
+        color: #919da8;
+        font-size: 13px;
+        letter-spacing: .035em;
+        pointer-events: none;
+        cursor: default;
+      }
+      >li {
+
+        position: relative;
+        display: block;
+        border-left: 3px solid transparent;
+        -webkit-transition: border-left-color .4s ease;
+        -o-transition: border-left-color .4s ease;
+        transition: border-left-color .4s ease;
+
+        >a {
+          padding: 12px 24px;
+          color: #515253;
+          letter-spacing: .025em;
+          font-weight: 400;
+          animation: fadeInLeft .5s;
+          >em {
+            width: 1.8em;
+            display: inline-block;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+          }
+        }
+
+      }
+      >li.panel {
+       box-shadow: none;
+        margin: 0 !important;
+        border: 0;
+      }
+      >li.active {
+        border-left-color: #23b7e5;
+        >a {
+          background-color: #fcfcfc;
+          color: #23b7e5;
+        }
+      }
+      >li.active, li.active .nav, li.active>a,li.open, li.open .nav, li.open>a {
+        background-color: #fcfcfc;
+        color: #23b7e5;
+      }
+    }
   }
-  .profile-name {
-    color: white;
-    font-size: 15pt;
+  .sidebar:after {
+    content: "";
+    background: rgba(0,0,0,.15);
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 1px;
+    -webkit-transform: translateZ(0);
   }
+
 }
 

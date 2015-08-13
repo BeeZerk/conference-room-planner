@@ -2,16 +2,23 @@
 
 body {
   font-family: 'Dosis', sans-serif;
-  background-color: #171717;
-  background-image: image-url("bg.png")
+//  background-color: #171717;
+//  background-image: image-url("bg.png")
 }
 
+a {
+  text-decoration: none;
+  color: #ffffff;
+  :hover {
+    color: red;
+  }
+}
 div.input_row, div.search_row {
   margin-bottom: 1em;
 }
 
-.register_utton {
-  margin-left: 5px;
+.glyphicon {
+  font-size: 1.6em;
 }
 
 th .current {
@@ -36,9 +43,6 @@ tr#new_macro_time_frame_row td {
   padding: 5px;
 }
 
-a {
-  text-decoration: none;
-}
 
 td {
   -webkit-touch-callout: none;
@@ -65,13 +69,7 @@ nav {
   border-radius: 0 !important;
 }
 
-a {
-  color: #3396d3 !important;
-}
 
-a:hover {
-  color: #2782bb !important;
-}
 .loginBox {
   background-color: white;
   max-width: 500px;

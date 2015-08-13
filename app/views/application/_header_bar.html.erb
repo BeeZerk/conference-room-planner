@@ -1,0 +1,45 @@
+<nav role="navigation" class="navbar top-navbar">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+            <%= image_tag("cuboise.png", :alt => "brand", class: 'logo') %>
+        </a>
+    </div>
+
+    <div class="navbar-wrapper">
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="#" id="collapse-sidemenu">
+                    <em class="fa fa-navicon"></em>
+                </a>
+            </li>
+            <li>
+                <a href="<%= url_for visit_profile_path(:slug => 1) %>">
+                    <em class="fa fa-user"></em>
+                </a>
+            </li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="#">
+                    <em class="fa fa-search"></em>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown" id="notification-dropdown" aria-expanded="false">
+                    <em class="fa fa-envelope"></em>
+                    <div class="label label-danger">10</div>
+                </a>
+                <ul class="dropdown-menu animated flipInX" aria-labelledby="notification-dropdown">
+                    lool
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <em class="fa fa-sign-out"></em>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</nav>

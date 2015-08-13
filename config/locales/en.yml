@@ -18,3 +18,5 @@ en:
         email: "Email"
   password_repeat: "Repeat password"
   register_button: "Sign up"
+  main_navigation_header: "Main Navigation"
+  main_navigation_headers: "Navigation"

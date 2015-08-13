@@ -1,57 +1,61 @@
-<div class="profile">
-    <%= holder_tag '100x100', 'Lol', 'gray', :id => 'profile_image', :class => 'profile-image'%>
-    <div class="profile-name">
-        <%= current_user.username %>
-    </div>
+<div class="aside-inner">
+    <nav class="sidebar">
+        <ul class="nav panel-group" id="top_nav_lol">
+            <li class="nav-heading">
+                <span><%= t('main_navigation_headers')%></span>
+            </li>
+            <li class="active panel" >
+                <a href="#dashboard" data-toggle="collapse" data-parent="#top_nav_lol" >
+                    <div class="pull-right label label-info">3</div>
+                    <em class="fa fa-tachometer"></em>
+                    <span data-localize="sidebar.nav.DASHBOARD">Dashboard</span>
+                </a>
+                <ul id="dashboard" class="nav sidebar-subnav collapse">
+                    <li class="sidebar-subnav-header">Dashboard</li>
+                    <li class=" active">
+                        <a href="dashboard.html" title="Dashboard v1">
+                            <span>Dashboard v1</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a href="dashboard_v2.html" title="Dashboard v2">
+                            <span>Dashboard v2</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a href="dashboard_v3.html" title="Dashboard v3">
+                            <span>Dashboard v3</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="panel">
+                <a href="#second" data-toggle="collapse" data-parent="#top_nav_lol">
+                    <div class="pull-right label label-info">3</div>
+                    <em class="fa fa-tachometer"></em>
+                    <span data-localize="sidebar.nav.DASHBOARD">Dashboard</span>
+                </a>
+                <ul id="second" class="nav sidebar-subnav collapse">
+                    <li class="sidebar-subnav-header">Dashboard</li>
+                    <li class=" ">
+                        <a href="dashboard.html" title="Dashboard v1">
+                            <span>Dashboard v1</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a href="dashboard_v2.html" title="Dashboard v2">
+                            <span>Dashboard v2</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a href="dashboard_v3.html" title="Dashboard v3">
+                            <span>Dashboard v3</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
 </div>
 
-	<!--<div class="container">-->
-		<!--<div class="navbar-header">-->
-			<!--<a class="navbar-brand" href="#">-->
-				<!--Diko-->
-			<!--</a>-->
-		<!--</div>-->
-		<!--<% if user_signed_in? %>-->
-			<!--<div class="dropdown navbar-left">-->
-				<!--<button class="btn btn-default dropdown-toggle navbar-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">-->
-					<!--Menu-->
-					<!--<span class="caret"></span>-->
-				<!--</button>-->
-				<!--<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">-->
-					<!--<li role="presentation">-->
-                        <!--<%= link_to('Startseite', calendar_path, :method => :get) %>-->
-					<!--</li>-->
-					<!--<li role="presentation">-->
-					<!--</li>-->
-					<!--<li role="presentation">-->
-					<!--</li>-->
-					<!--<li role="presentation">-->
-					<!--</li>-->
-					<!--<li role="presentation">-->
-					<!--</li>-->
-					<!--<li role="presentation">-->
-					<!--</li>-->
-					<!--<% if current_user.admin? %>-->
-						<!--<li role="presentation">-->
-                            <!--<%= link_to('Konferenzraeume', rooms_path, :method => :get) %>-->
-						<!--</li>-->
-						<!--<li role="presentation">-->
-                            <!--<%= link_to('Kategorien', categories_path, :method => :get) %>-->
-						<!--</li>-->
-					<!--<% end %>-->
-				<!--</ul>-->
-			<!--</div>-->
-			<!--<p class="navbar-text navbar-link navbar-right" style="margin-left:5px">-->
-                <!--<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>-->
-			<!--</p>-->
-			<!--<p class="navbar-text navbar-right">-->
-				<%= t('devise.sessions.signed_in_as') %> <%= link_to current_user.email, edit_user_registration_path %> |
-			<!--</p>-->
-		<!--<% else %>-->
-            <!--<p class="navbar-text navbar-link navbar-right">-->
-                <!--<%= link_to('Registrieren', new_user_registration_path)  %>-->
-            <!--</p>-->
-			<!--<p class="navbar-text navbar-link navbar-right">-->
-			<!--</p>-->
-		<!--<% end %>-->
-	<!--</div>-->
+

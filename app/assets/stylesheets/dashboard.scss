@@ -1,12 +1,196 @@
-.action-bar {
-  background-color: #3e3e7c;
-  width: 100%;
-  height: 50px;
-  h1 {
-    margin: 0;
+/*
+ASIDE COLLAPSED
+
+*/
+.aside-collapsed {
+
+  .wrapper>.aside {
+    > .aside-inner {
+      width: 70px;
+    }
+    width: 70px;
+  }
+  .wrapper>section {
+    margin-left: 70px;
+  }
+
+  .sidebar > .nav {
+    .label {
+      position: absolute;
+      top: 10px;
+      right: 5px;
+      text-indent: 0;
+      -webkit-animation: fadeIn 1s;
+      -o-animation: fadeIn 1s;
+      animation: fadeIn 1s;
+    }
+    .nav-heading {
+      display: none !important;
+    }
+    .nav {
+      display: none !important;
+    }
+
+    >li {
+      width: 68px;
+      >a {
+        text-indent: -3px;
+        padding: 20px 0 !important;
+        text-align: center;
+        >em {
+          font-size: 1.6em;
+          width: auto;
+        }
+        >span {
+          display: none !important;
+        }
+      }
+    }
   }
 }
 
+
+
+.wrapper {
+  >.aside{
+    -webkit-transition: width .2s cubic-bezier(.35,0,.25,1),translate .2s cubic-bezier(.35,0,.25,1);
+    -o-transition: width .2s cubic-bezier(.35,0,.25,1),translate .2s cubic-bezier(.35,0,.25,1);
+    transition: width .2s cubic-bezier(.35,0,.25,1),translate .2s cubic-bezier(.35,0,.25,1);
+    position: absolute;
+    width: 220px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 116;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color: #fff;
+    -webkit-animation: fadeIn 3s;
+    -o-animation: fadeIn 3s;
+    animation: fadeIn 3s;
+  }
+  >section {
+    position: relative;
+    height: 100%;
+    margin-left: 220px;
+    z-index: 111;
+    background-color: #f5f7fa;
+    margin-bottom: 60px!important;
+  }
+}
+
+
+/*TOP NAV BAR*/
+.navbar, .top-navbar {
+  filter: none!important;
+  z-index: 1050;
+}
+
+.top-nav-bar, .navbar-header {
+  width: 220px;
+  text-align: center;
+}
+.navbar {
+  background-color: #23b7e5;
+  background-image: -webkit-linear-gradient(left,#23b7e5 0,#51c6ea 100%);
+  background-image: -o-linear-gradient(left,#23b7e5 0,#51c6ea 100%);
+  background-image: linear-gradient(to right,#23b7e5 0,#51c6ea 100%);
+  background-repeat: no-repeat;
+  border: 0;
+
+  .navbar-header {
+    filter: none;
+    position: relative;
+    z-index: 11;
+    .navbar-brand {
+      animation: fadeIn 1s;
+      .logo {
+        display: block;
+        width: 20%;
+      }
+    }
+
+  }
+  .navbar-wrapper {
+    position: relative;
+    box-shadow: 0 1px 2px rgba(0,0,0,.15);
+    z-index: 10;
+    padding: 0 15px;
+    background-color: transparent;
+
+    .nav {
+      float: left;
+    }
+    
+    .navbar-nav {
+      >li {
+        > a {
+          background-color: transparent !important;
+          color: #ffffff;
+          padding-top: 17px;
+          padding-bottom: 17px;
+          > em:hover {
+            color: #000000!important;
+          }
+        }
+        > a:hover {
+          background-color: transparent;
+          color: #000000!important;
+        }
+      }
+    }
+    .navbar-right {
+      float: right!important;
+      margin-right: -15px;
+
+      .dropdown>a>.label{
+        position: absolute;
+        top: 10px;
+        right: 0;
+        padding: 2px 5px;
+      }
+    }
+  }
+  h1 {
+    color: #ffffff;
+    margin: 0;
+    width: 15%;
+    text-align: center;
+    height: 100%;
+    float: left;
+  }
+  .menu-container {
+    float: right;
+    height: 100%;
+    display: table;
+    text-align: right;
+    padding: 0 1%;
+    a {
+      padding-right: 25px;
+      vertical-align: middle;
+      display: table-cell;
+    }
+  }
+}
+.top-nav-bar {
+  -webkit-backface-visibility: hidden;
+  margin-bottom: 0;
+  border-radius: 0;
+  background-color: #fff;
+  z-index: 1050;
+  border: 0;
+  border-bottom: 1px solid rgba(0,0,0,.15);
+  position: relative;
+}
+
 .content-wrapper {
-  height: 100%;
+  width: 100%;
+  border-top: 1px solid rgba(0,0,0,.15);
+  margin-top: -1px;
+}
+
+.navbar-wrapper:before, .navbar-wrapper:after {
+  content: "";
+  display: table;
 }

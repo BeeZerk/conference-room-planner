@@ -1,15 +1,13 @@
 source 'https://rubygems.org'
 
 
-gem 'bootstrap-colorpicker-rails', :require => 'bootstrap-colorpicker-rails',
-    :git => 'git://github.com/alessani/bootstrap-colorpicker-rails.git'
-
-
-gem "simple_calendar", "~> 1.1.0"
+gem 'simple_calendar', '~> 1.1.0'
 gem 'mini_magick'
 gem 'devise'
 gem 'carrierwave'
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'animate-rails'
+gem 'font-awesome-rails'
 gem 'autoprefixer-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1.rc3'
@@ -46,15 +44,16 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug'
   gem 'sqlite3'
+  gem 'rails-dev-tweaks', '~> 1.1'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'holder_rails'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem "guard", ">= 2.2.2",       :require => false
-  gem "guard-livereload",        :require => false
-  gem "rack-livereload"
-  gem "rb-fsevent",              :require => false
+  gem 'guard', '>= 2.2.2',       :require => false
+  gem 'guard-livereload',        :require => false
+  gem 'rack-livereload'
+  gem 'rb-fsevent',              :require => false
 end
 group :production do
   gem 'pg'
