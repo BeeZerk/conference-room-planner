@@ -1,4 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class="profile-wrapper">
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+  <div class="profile-header">
+    <div class="cover-photo" style="background-image: url(<%= image_path("bg.png") %>)">
+        &nbsp;
+    </div>
+    <div class="avatar">
+        <%= holder_tag '120x120'%>
+    </div>
+    <div class="actions">
+        <button class="btn btn-default">Lol</button>
+        <button class="btn btn-default">Lol</button>
+        <button class="btn btn-default">Lol</button>
+    </div>
+  </div>
+
+</div>

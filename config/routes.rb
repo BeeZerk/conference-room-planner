@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :events
-  devise_for :users, controllers: {sessions: 'sessions'}, :skip => [:sessions]
+  devise_for :users, controllers: {sessions: 'sessions', registrations: 'devise_registration'}, :skip => [:sessions]
 
   match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
   root :to => 'cuboise#dashboard'
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'login' => 'devise/sessions#new', :as => :new_user_session
     post 'signin' => 'devise/sessions#create', :as => :user_session
-    delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
+    get 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
   end
   ######################################################
   ###################### Calendar
@@ -26,7 +26,6 @@ Rails.application.routes.draw do
   ######################################################
   ###################### Profile / user
   ######################################################
-  resources :profiles
   get 'profile/:slug' => 'profiles#show', as: 'visit_profile'
 end
 

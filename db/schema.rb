@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20150813144829) do
 
   create_table "profiles", force: :cascade do |t|
     t.string   "username",   null: false
-    t.string   "image"
+    t.string   "avatar"
     t.string   "cover"
     t.string   "slug"
     t.datetime "created_at"

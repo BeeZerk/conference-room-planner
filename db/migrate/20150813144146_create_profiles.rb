@@ -4,7 +4,7 @@ class CreateProfiles < ActiveRecord::Migration
         # t.integer :event_id
         # t.integer :user_id
         t.string :username, :null => false
-        t.string :image, :null => true
+        t.string :avatar, :null => true
         t.string :cover, :null => true
         t.string :slug, :unique => true
         t.timestamps

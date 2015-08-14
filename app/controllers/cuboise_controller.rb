@@ -1,7 +1,6 @@
 class CuboiseController < ApplicationController
 
   before_action :authenticate_user!, except: :home
-  before_action :has_profile
   def index
   end
 

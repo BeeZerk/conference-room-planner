@@ -13,7 +13,7 @@
                 </a>
             </li>
             <li>
-                <a href="<%= url_for visit_profile_path(:slug => 1) %>">
+                <a href="<%= url_for visit_profile_path(:slug => current_user.profile.slug) %>">
                     <em class="fa fa-user"></em>
                 </a>
             </li>
@@ -35,7 +35,7 @@
                 </ul>
             </li>
             <li>
-                <a href="#">
+                <a href="<%= url_for destroy_user_session_path%>">
                     <em class="fa fa-sign-out"></em>
                 </a>
             </li>

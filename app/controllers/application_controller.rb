@@ -55,11 +55,6 @@ class ApplicationController < ActionController::Base
     redirect_to new_user_session_path , notice: "You must login" unless user_signed_in?
   end
 
-  def has_profile
-    if current_user.profile.blank?
-      redirect_to new_profile_path
-    end
-  end
   ##################################################
   #####            PRIVATE METHODS             #####
   ##################################################

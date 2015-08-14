@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'nested_form'
 gem 'simple_calendar', '~> 1.1.0'
 gem 'mini_magick'
 gem 'devise'
