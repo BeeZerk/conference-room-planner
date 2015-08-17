@@ -1,10 +1,20 @@
-<div class="pagina">
-    <div class="linha">
-        <% @calendars.each do |calendar| %>
-            <a class='tile' style="background-color:<%=  calendar.color%>" href="<%= url_for :controller => 'calendar', :action => 'month', :token => calendar.token %>">
-                <span class="tile-title"><%= calendar.name %></span>
-            </a>
-        <% end %>
-        <%= render partial: 'new_calendar_tile' %>
+<div class="content-wrapper">
+    <div class="content-header">
+      <%= t('nav.calendar.calendar')%>
+      <div class="content-actions"><button class="btn btn-default">Test 1</button></div>
+    </div>
+    <div class="content-body">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="panel panel-default">
+            dqw
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="panel panel-default">
+            <div id="calendar"></div>
+          </div>
+        </div>
+      </div>
     </div>
 </div>

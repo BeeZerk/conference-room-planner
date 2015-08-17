@@ -10,7 +10,7 @@ ASIDE COLLAPSED
     }
     width: 70px;
   }
-  .wrapper>section {
+  .wrapper>section, .wrapper>footer {
     margin-left: 70px;
   }
 
@@ -69,17 +69,54 @@ ASIDE COLLAPSED
     -webkit-animation: fadeIn 3s;
     -o-animation: fadeIn 3s;
     animation: fadeIn 3s;
+    height: 100%;
   }
   >section {
     position: relative;
-    height: 100%;
     margin-left: 220px;
     z-index: 111;
     background-color: #f5f7fa;
-    margin-bottom: 60px!important;
+  }
+  >footer {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    border-top: 1px solid #e4eaec;
+    padding: 20px;
+    z-index: 109;
+
+    margin-left: 220px;
   }
 }
 
+/**
+CONTENT WRAPPER
+*/
+
+
+.content-wrapper {
+  padding: 20px;
+  width: 100%;
+  .content-header {
+    font-size: 24px;
+    line-height: 1.1;
+    color: #929292;
+    margin: -20px -20px 20px;
+    padding: 15px;
+    font-weight: 400;
+    background-color: #fafbfc;
+    border-bottom: 1px solid #cfdbe2;
+  }
+  .content-actions {
+    float: right;
+  }
+  .content-body {
+    .panel.panel-default {
+      border-top-width: 3px;
+    }
+  }
+}
 
 /*TOP NAV BAR*/
 .navbar, .top-navbar {
@@ -184,11 +221,6 @@ ASIDE COLLAPSED
   position: relative;
 }
 
-.content-wrapper {
-  width: 100%;
-  border-top: 1px solid rgba(0,0,0,.15);
-  margin-top: -1px;
-}
 
 .navbar-wrapper:before, .navbar-wrapper:after {
   content: "";

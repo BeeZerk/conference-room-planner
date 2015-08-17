@@ -1,6 +1,8 @@
 de:
   buttons:
     save: "Speichern"
+    profile:
+      add_friend: "Freund adden"
   invalid_calendar: "Der Kalender existiert nicht!"
   forgot_password: "Passwort vergessen?"
   login: "Login"

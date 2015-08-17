@@ -13,9 +13,12 @@ class CalendarController < ApplicationController
 
   def index
     @calendars = Calendar.where(:owner => current_user)
-    @new_calendar = Calendar.new
   end
 
+
+  def ajax_get_events
+    render json: Event.all
+  end
 
   ######################################################
   ###################### Form Methods

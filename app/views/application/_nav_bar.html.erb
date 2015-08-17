@@ -4,52 +4,58 @@
             <li class="nav-heading">
                 <span><%= t('main_navigation_headers')%></span>
             </li>
-            <li class="active panel" >
-                <a href="#dashboard" data-toggle="collapse" data-parent="#top_nav_lol" >
-                    <div class="pull-right label label-info">3</div>
-                    <em class="fa fa-tachometer"></em>
-                    <span data-localize="sidebar.nav.DASHBOARD">Dashboard</span>
-                </a>
-                <ul id="dashboard" class="nav sidebar-subnav collapse">
-                    <li class="sidebar-subnav-header">Dashboard</li>
-                    <li class=" active">
-                        <a href="dashboard.html" title="Dashboard v1">
-                            <span>Dashboard v1</span>
-                        </a>
-                    </li>
-                    <li class=" ">
-                        <a href="dashboard_v2.html" title="Dashboard v2">
-                            <span>Dashboard v2</span>
-                        </a>
-                    </li>
-                    <li class=" ">
-                        <a href="dashboard_v3.html" title="Dashboard v3">
-                            <span>Dashboard v3</span>
-                        </a>
-                    </li>
-                </ul>
+            <li class="panel <%= (('active' if current_page?(root_path)))%>">
+                  <%= link_to root_path do %>
+                      <em class="fa fa-tachometer"></em>
+                      <span data-localize="sidebar.nav.DASHBOARD"><%= t('nav.dashboard')%></span>
+                  <% end %>
             </li>
-            <li class="panel">
+            <li class="panel <%= (is_active_link?('/calendar') ? 'active': '')%>">
+              <a href="#calendar_nav" data-toggle="collapse" data-parent="#top_nav_lol">
+                <div class="pull-right label label-info">3</div>
+                <em class="fa fa-calendar"></em>
+                <span data-localize="sidebar.nav.CALENDAR"><%= t('nav.calendar.calendar')%></span>
+              </a>
+              <ul id="calendar_nav" class="nav sidebar-subnav <%= (is_active_link?('/calendar') ? 'collapsed collapse in': 'collapse')%>">
+                <li class="sidebar-subnav-header"><%= t('nav.profile.calendar')%></li>
+                <li class="<%= (is_active_link?(my_calendars_path) ? 'active': '')%>">
+                  <a href="<%= url_for my_calendars_path %>">
+                    <span><%= t('nav.calendar.my_calendar')%></span>
+                  </a>
+                </li>
+                <li class=" ">
+                  <a href="#">
+                    <span><%= t('placeholder')%></span>
+                  </a>
+                </li>
+                <li class=" ">
+                  <a href="#">
+                    <span><%= t('placeholder')%></span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="panel <%= (is_active_link?('/profile') ? 'active': '')%>">
                 <a href="#second" data-toggle="collapse" data-parent="#top_nav_lol">
                     <div class="pull-right label label-info">3</div>
-                    <em class="fa fa-tachometer"></em>
-                    <span data-localize="sidebar.nav.DASHBOARD">Dashboard</span>
+                    <em class="fa fa-user"></em>
+                    <span data-localize="sidebar.nav.PROFILE"><%= t('nav.profile.profile')%></span>
                 </a>
-                <ul id="second" class="nav sidebar-subnav collapse">
-                    <li class="sidebar-subnav-header">Dashboard</li>
-                    <li class=" ">
-                        <a href="dashboard.html" title="Dashboard v1">
-                            <span>Dashboard v1</span>
+                <ul id="second" class="nav sidebar-subnav <%= (is_active_link?('/profile') ? 'collapsed collapse in': 'collapse')%>">
+                    <li class="sidebar-subnav-header"><%= t('nav.profile.profile')%></li>
+                    <li class="<%= (is_active_link?(visit_profile_path(:slug => current_user.profile.slug)) ? 'active': '')%>">
+                        <a href="<%= url_for visit_profile_path(:slug => current_user.profile.slug) %>">
+                            <span><%= t('nav.profile.my')%></span>
                         </a>
                     </li>
                     <li class=" ">
-                        <a href="dashboard_v2.html" title="Dashboard v2">
-                            <span>Dashboard v2</span>
+                        <a href="#">
+                            <span><%= t('nav.profile.my_messages')%></span>
                         </a>
                     </li>
                     <li class=" ">
-                        <a href="dashboard_v3.html" title="Dashboard v3">
-                            <span>Dashboard v3</span>
+                        <a href="#">
+                            <span><%= t('nav.profile.friends')%></span>
                         </a>
                     </li>
                 </ul>

@@ -16,4 +16,6 @@
 //= require turbolinks
 //= require holder
 //= require jquery_nested_form
+//= require moment
+//= require fullcalendar
 //= require_tree .

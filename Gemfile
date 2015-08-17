@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
+gem 'active_link_to'
 gem 'nested_form'
-gem 'simple_calendar', '~> 1.1.0'
 gem 'mini_magick'
 gem 'devise'
 gem 'carrierwave'

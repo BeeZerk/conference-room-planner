@@ -3,6 +3,8 @@ en:
     buttons:
         cancel: "Cancel"
         save: "Save"
+        profile:
+              add_friend: "Add friend"
   invalid_calendar: "This calendar was not found!"
   login: Login
   forgot_password: "Reset password"
@@ -20,3 +22,14 @@ en:
   register_button: "Sign up"
   main_navigation_header: "Main Navigation"
   main_navigation_headers: "Navigation"
+  nav:
+    dashboard: "Dashboard"
+    profile:
+      my_messages: "Messages"
+      friends: "Friends"
+      my: "My Profile"
+      profile: "Profile"
+    calendar:
+      calendar: "Calendar"
+      my_calendar: "My Calendars"
+  placeholder: "Placeholder"
