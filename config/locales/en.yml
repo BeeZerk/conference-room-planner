@@ -18,6 +18,12 @@ en:
       attribute:
         username: "Username"
         email: "Email"
+    event:
+      attribute:
+        title: "Title"
+        end: "End"
+        start: "Start"
+        all_day: "All Day"
   password_repeat: "Repeat password"
   register_button: "Sign up"
   main_navigation_header: "Main Navigation"
@@ -32,4 +38,6 @@ en:
     calendar:
       calendar: "Calendar"
       my_calendar: "My Calendars"
+    events:
+      Event: "Events"
   placeholder: "Placeholder"

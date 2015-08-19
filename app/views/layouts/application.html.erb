@@ -9,13 +9,15 @@
 <body>
 
 <div class="wrapper">
-    <header class="">
+    <% if user_signed_in? %>
+    <header>
         <%= render 'application/header_bar' %>
     </header>
 
     <aside class="aside">
         <%= render 'application/nav_bar' %>
     </aside>
+    <% end %>
     <section>
             <% flash.each do |name, msg| %>
                 <div class="alert alert-<%= (name == 'alert') ? 'danger' : 'success' %> alert-dismissible" role="alert">

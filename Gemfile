@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'fullcalendar-rails'
-gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.15.35'
 
 gem 'active_link_to'
 gem 'nested_form'

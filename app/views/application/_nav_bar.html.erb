@@ -10,6 +10,31 @@
                       <span data-localize="sidebar.nav.DASHBOARD"><%= t('nav.dashboard')%></span>
                   <% end %>
             </li>
+            <li class="panel <%= (is_active_link?('/events') ? 'active': '')%>">
+                <a href="#calendar_nav" data-toggle="collapse" data-parent="#top_nav_lol">
+                    <div class="pull-right label label-info">3</div>
+                    <em class="fa fa-glass"></em>
+                    <span data-localize="sidebar.nav.CALENDAR"><%= t('nav.events.Event')%></span>
+                </a>
+                <ul id="calendar_nav" class="nav sidebar-subnav <%= (is_active_link?('/events') ? 'collapsed collapse in': 'collapse')%>">
+                    <li class="sidebar-subnav-header"><%= t('nav.events.Event')%></li>
+                    <li class="<%= (is_active_link?(events_path) ? 'active': '')%>">
+                        <a href="<%= url_for new_events_path %>">
+                            <span><%= t('nav.events.new_events')%></span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a href="#">
+                            <span><%= t('placeholder')%></span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a href="#">
+                            <span><%= t('placeholder')%></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <li class="panel <%= (is_active_link?('/calendar') ? 'active': '')%>">
               <a href="#calendar_nav" data-toggle="collapse" data-parent="#top_nav_lol">
                 <div class="pull-right label label-info">3</div>

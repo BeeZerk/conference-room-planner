@@ -27,7 +27,8 @@ Rails.application.routes.draw do
   ######################################################
   ###################### Events
   ######################################################
-  get 'events' => 'events#index', as: 'events'
+  resource :events
+  # get 'events' => 'events#index', as: 'events'
 
   ######################################################
   ###################### Profile / user

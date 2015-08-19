@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150813144829) do
+ActiveRecord::Schema.define(version: 20150819071030) do
 
   create_table "calendars", force: :cascade do |t|
     t.string   "name"
@@ -33,25 +33,17 @@ ActiveRecord::Schema.define(version: 20150813144829) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
-    t.string   "note"
-    t.datetime "starts_at"
-    t.datetime "ends_at"
+    t.boolean  "allDay"
+    t.datetime "start"
+    t.datetime "end"
+    t.text     "description"
+    t.string   "color"
+    t.integer  "creator_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "recur_every"
-    t.integer  "creator_id"
-    t.integer  "calendar_id"
   end
 
-  add_index "events", ["calendar_id"], name: "index_events_on_calendar_id"
   add_index "events", ["creator_id"], name: "index_events_on_creator_id"
-
-  create_table "events_users", id: false, force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "user_id"
-  end
-
-  add_index "events_users", ["event_id", "user_id"], name: "index_events_users_on_event_id_and_user_id"
 
   create_table "profiles", force: :cascade do |t|
     t.string   "username",   null: false

@@ -1,5 +1,88 @@
-<h1>New Event</h1>
 
-<%= render 'form' %>
+<div class="content-wrapper">
+    <div class="content-header">
+        <%= t('nav.events.new_events')%>
+        <div class="content-actions"><button class="btn btn-default">Test 1</button></div>
+    </div>
+    <div class="content-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default" style="padding: 25px">
+                    <header>
+                        <h1><%= t('register_title')%></h1>
+                    </header>
 
-<%= link_to 'Back', events_path %>
+                    <%= form_for(@event, :html => {class: 'user_registration'}) do |f| %>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <%= f.text_field :title, placeholder: t('model.event.attribute.title'), class: 'form-control'  %>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-5">
+                                <%= f.text_field :start, placeholder: t('model.event.attribute.start'), class: 'form-control' %>
+                            </div>
+                            <div class="form-group col-md-5">
+                                <%= f.text_field :end, placeholder: t('model.event.attribute.end'), class: 'form-control' %>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <%= f.label :allDay do %>
+                                    <%= f.check_box :allDay %>
+                                    <%= t('model.event.attribute.all_day') %>
+                                <% end %>
+                            </div>
+                        </div>
+
+                        <%= f.submit t('form.buttons.save'), class: 'btn btn-primary pull-right' %>
+                    <% end %>
+
+                    <footer>
+                        <%= link_to t('login'), root_path %>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("#event_start").datetimepicker({
+        debug: true,
+        locale: moment.locale('us'),
+        minDate: moment(),
+        calendarWeeks: true,
+        toolbarPlacement: 'top',
+        icons: {
+            time: 'fa fa-clock-o',
+            date: 'fa fa-calendar',
+            up: 'fa fa-arrow-up',
+            down: 'fa fa-arrow-down',
+            previous: 'fa fa-arrow-left',
+            next: 'fa fa-arrow-right',
+            today: 'fa fa-arrows-alt',
+            clear: 'fa fa-trash',
+            close: 'fa fa-times'
+        }
+    });
+    $("#event_end").datetimepicker({
+        debug: true,
+        locale: moment.locale('us'),
+        minDate: moment(),
+        calendarWeeks: true,
+        toolbarPlacement: 'top',
+        icons: {
+            time: 'fa fa-clock-o',
+            date: 'fa fa-calendar',
+            up: 'fa fa-arrow-up',
+            down: 'fa fa-arrow-down',
+            previous: 'fa fa-arrow-left',
+            next: 'fa fa-arrow-right',
+            today: 'fa fa-arrows-alt',
+            clear: 'fa fa-trash',
+            close: 'fa fa-times'
+        }
+    });
+</script>
