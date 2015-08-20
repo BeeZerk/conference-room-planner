@@ -30,7 +30,11 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
+
+    prms = event_params
+
+    prms[:start] = Date.parse(event_params[:start])
+    @event = Event.new(prms)
 
     respond_to do |format|
       if @event.save
