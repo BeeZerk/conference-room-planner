@@ -17,6 +17,6 @@
 //= require holder
 //= require jquery_nested_form
 //= require moment-with-locales.min
-//= require fullcalendar
+//= require fullcalendar.min
 //= require bootstrap-datetimepicker
 //= require_tree .

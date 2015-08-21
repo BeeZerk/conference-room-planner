@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'fullcalendar-rails'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.15.35'
 
 gem 'active_link_to'

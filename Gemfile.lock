@@ -83,9 +83,6 @@ GEM
     font-awesome-rails (4.4.0.0)
       railties (>= 3.2, < 5.0)
     formatador (0.2.5)
-    fullcalendar-rails (2.3.1.0)
-      jquery-rails (>= 3.1.1, < 5.0.0)
-      momentjs-rails (~> 2.8, >= 2.8.4)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     guard (2.13.0)
@@ -232,7 +229,6 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   font-awesome-rails
-  fullcalendar-rails
   guard (>= 2.2.2)
   guard-livereload
   holder_rails
