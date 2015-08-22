@@ -41,3 +41,8 @@ en:
     events:
       Event: "Events"
   placeholder: "Placeholder"
+  events_title: "Events"
+  buttons:
+    profile:
+      cancel_friend_request: "Cancel Request"
+      answer_friend_request: "Answer Request"

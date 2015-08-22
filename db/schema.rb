@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150822122759) do
+ActiveRecord::Schema.define(version: 20150822195259) do
 
   create_table "calendars", force: :cascade do |t|
     t.string   "name"
@@ -45,6 +45,17 @@ ActiveRecord::Schema.define(version: 20150822122759) do
 
   add_index "events", ["creator_id"], name: "index_events_on_creator_id"
 
+  create_table "friendships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.boolean  "accepted",   default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "friendships", ["friend_id"], name: "index_friendships_on_friend_id"
+  add_index "friendships", ["user_id"], name: "index_friendships_on_user_id"
+
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "provider"
@@ -62,6 +73,17 @@ ActiveRecord::Schema.define(version: 20150822122759) do
   end
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id"
+
+  create_table "notifications", force: :cascade do |t|
+    t.string   "type"
+    t.boolean  "checked",    default: false
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notifications", ["type"], name: "index_notifications_on_type"
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "uuid",                   limit: 36
