@@ -259,4 +259,12 @@ Devise.setup do |config|
 
 
   config.sign_out_via = :get
+
+
+  config.omniauth :facebook, "KEY", "SECRET"
+  config.omniauth :twitter, "rVYbHzOIxJIg5tbQfgTkGNrrE", "cLZ6n049uxlirrcQdyrhXgS9crqjxH55AYQyQnigZ2RLe89wNs",
+                  {
+                      :image_size => 'original'
+                  }
+  config.omniauth :linked_in, "KEY", "SECRET"
 end

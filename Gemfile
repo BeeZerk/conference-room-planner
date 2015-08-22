@@ -1,11 +1,22 @@
 source 'https://rubygems.org'
 
+
+#####
+### Devise
+#####
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
+
+
 gem 'bootstrap3-datetimepicker-rails', '~> 4.15.35'
 
 gem 'active_link_to'
 gem 'nested_form'
 gem 'mini_magick'
-gem 'devise'
+
 gem 'carrierwave'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'animate-rails'

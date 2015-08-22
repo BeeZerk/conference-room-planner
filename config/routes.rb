@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: {sessions: 'sessions', registrations: 'devise_registration'}, :skip => [:sessions]
+  devise_for :users, class_name: 'FormUser', controllers: {sessions: 'sessions',
+                                   registrations: 'registrations',
+                                   omniauth_callbacks: "users/omniauth_callbacks"},
+             :skip => [:sessions]
 
   match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
   root :to => 'cuboise#dashboard'
@@ -34,6 +37,6 @@ Rails.application.routes.draw do
   ######################################################
   ###################### Profile / user
   ######################################################
-  get 'profile/:slug' => 'profiles#show', as: 'visit_profile'
+  get 'profile/:uuid' => 'users#show', as: 'visit_profile'
 end
 

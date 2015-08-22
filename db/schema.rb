@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819071030) do
+ActiveRecord::Schema.define(version: 20150822122759) do
 
   create_table "calendars", force: :cascade do |t|
     t.string   "name"
@@ -45,39 +45,46 @@ ActiveRecord::Schema.define(version: 20150819071030) do
 
   add_index "events", ["creator_id"], name: "index_events_on_creator_id"
 
-  create_table "profiles", force: :cascade do |t|
-    t.string   "username",   null: false
-    t.string   "avatar"
-    t.string   "cover"
-    t.string   "slug"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
+    t.string   "provider"
+    t.string   "accesstoken"
+    t.string   "refreshtoken"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "email"
+    t.string   "nickname"
+    t.string   "image"
+    t.string   "phone"
+    t.string   "urls"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
+  add_index "identities", ["user_id"], name: "index_identities_on_user_id"
 
   create_table "users", force: :cascade do |t|
+    t.string   "uuid",                   limit: 36
+    t.string   "username",                                          null: false
+    t.string   "avatar"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                             default: "",    null: false
+    t.string   "encrypted_password",                default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",                     default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.boolean  "admin",                  default: false
+    t.boolean  "admin",                             default: false
     t.string   "attachment"
-    t.boolean  "active",                 default: false
-    t.integer  "profile_id"
+    t.boolean  "active",                            default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["profile_id"], name: "index_users_on_profile_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

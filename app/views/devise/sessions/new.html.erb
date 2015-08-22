@@ -16,6 +16,7 @@
     <% end %>
 
     <footer>
+      <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:twitter) %>
         <%= link_to t('forgot_password'), new_password_path(resource_name) %> | <%= link_to(t('register'), new_user_registration_path)  %>
     </footer>
 </div>
