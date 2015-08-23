@@ -1,3 +1,5 @@
+
+
 <div class="profile-wrapper">
 
   <div class="profile-header">
@@ -18,26 +20,7 @@
     </div>
     <div class="actions">
 
-      <% if @user.uuid == current_user.uuid %>
-
-      <% else %>
-          <!-- Cancel friendrequest -->
-          <% if !Friendship.find_by_user_id_and_friend_id(current_user.id, @user.id).blank?%>
-                  <%= form_for @user, url: add_friend_url, :method => :post do |f| %>
-                      <button class="btn btn-default"><%= t('buttons.profile.cancel_friend_request')%></button>
-                  <% end %>
-
-          <!-- Answer friendrequest -->
-          <% elsif !Friendship.find_by_user_id_and_friend_id(@user.id, current_user.id).blank?%>
-                  <%= form_for @user, url: add_friend_url, :method => :post do |f| %>
-                      <button class="btn btn-default"><%= t('buttons.profile.answer_friend_request')%></button>
-                  <% end %>
-          <% else %>
-              <%= form_for @user, url: add_friend_url, :method => :post do |f| %>
-                  <button class="btn btn-default"><%= t('buttons.profile.add_friend')%></button>
-              <% end %>
-          <% end %>
-      <% end %>
+      <%= render_friendship_bar %>
 
     </div>
   </div>

@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20150822195259) do
 
   create_table "notifications", force: :cascade do |t|
     t.string   "type"
+    t.boolean  "seen",       default: false
     t.boolean  "checked",    default: false
     t.integer  "user_id"
     t.datetime "created_at"

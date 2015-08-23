@@ -39,6 +39,6 @@ Rails.application.routes.draw do
   ######################################################
   get 'profile/:uuid' => 'users#show', as: 'visit_profile'
 
-  post 'profile/friends/add/:uuid' => 'users#add_friend', as: 'add_friend'
+  get 'profile/friends/add/:uuid' => 'users#add_friend', as: 'add_friend'
 end
 
