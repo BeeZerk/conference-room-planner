@@ -10,6 +10,11 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
+#####
+### Social Elements
+#####
+gem 'socialization'
+
 
 gem 'bootstrap3-datetimepicker-rails', '~> 4.15.35'
 

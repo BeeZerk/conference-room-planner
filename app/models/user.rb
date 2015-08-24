@@ -4,6 +4,13 @@ class User < ActiveRecord::Base
   devise :omniauthable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable
 
+  ###social
+  acts_as_follower
+  acts_as_followable
+  acts_as_liker
+  acts_as_likeable
+  acts_as_mentionable
+
 
   has_many :identities
   has_and_belongs_to_many :events

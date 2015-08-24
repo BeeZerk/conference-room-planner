@@ -1,4 +1,9 @@
 module ProfileHelper
+
+  def render_action_bar
+
+  end
+
   def render_friendship_bar
     if @user.uuid == current_user.uuid
         link_to 'Thats you', root_path
@@ -11,5 +16,22 @@ module ProfileHelper
         link_to  t('buttons.profile.add_friend'), add_friend_path
       end
     end
+  end
+
+  def render_follow_bar
+    if @user.uuid == current_user.uuid
+      link_to 'Thats you', root_path
+    else
+      if current_user.follows?(@user)
+        link_to t('buttons.profile.social.follow.unfollow'), toggle_follow_user_path
+      else
+        link_to  t('buttons.profile.social.follow.follow'), toggle_follow_user_path
+      end
+    end
+  end
+
+  def render_follower_count
+
+    link_to @user.followers(User).count, root_path
   end
 end

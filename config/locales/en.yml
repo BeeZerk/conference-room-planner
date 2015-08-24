@@ -46,3 +46,10 @@ en:
     profile:
       cancel_friend_request: "Cancel Request"
       answer_friend_request: "Answer Request"
+      social:
+        follow:
+          unfollow: "Unfollow"
+          follow: "Follow"
+    session:
+      sign_in_with:
+        twitter: "Sign in with Twitter"

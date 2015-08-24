@@ -40,5 +40,9 @@ Rails.application.routes.draw do
   get 'profile/:uuid' => 'users#show', as: 'visit_profile'
 
   get 'profile/friends/add/:uuid' => 'users#add_friend', as: 'add_friend'
+  ######################
+  ########### Social
+  ######################
+  get 'profile/toggle_follow/:uuid' => 'social/follows#toggle_follow', as: 'toggle_follow_user'
 end
 

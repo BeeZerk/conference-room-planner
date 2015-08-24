@@ -1,28 +1,37 @@
-
-
 <div class="profile-wrapper">
 
-  <div class="profile-header">
-    <div class="cover-photo" style="background-image: url(<%= image_path("bg.png") %>)">
-      &nbsp;
-    </div>
-    <div class="avatar">
-      <% if !@user.avatar.nil? %>
-        <img src="<%= @user.avatar %>">
-      <% else %>
-        <%= holder_tag '120x120'%>
-    <% end%>
-    </div>
-    <div class="name">
-      <h2>
-        <%= @user.username %>
-      </h2>
-    </div>
-    <div class="actions">
+    <div class="profile-header">
+        <div class="cover-photo" style="background-image: url(<%= image_path("bg.png") %>)">
+            &nbsp;
+        </div>
+        <div class="avatar">
+            <% if !@user.avatar.nil? %>
+                <img src="<%= @user.avatar %>">
+            <% else %>
+                <%= holder_tag '120x120' %>
+            <% end %>
+        </div>
+        <div class="name">
+            <h2>
+                <%= @user.username %>
+            </h2>
+        </div>
+        <div class="actions">
 
-      <%= render_friendship_bar %>
+            <%= render_action_bar %>
+            <%= render_friendship_bar %>
+            <%= render_follow_bar %>
+
+        </div>
+
 
     </div>
-  </div>
+    <div class="information-bar row">
+        <div class="col-md-4">
+            Follower: <%= render_follower_count %>
+        </div>
+        <div class="col-md-4">lol</div>
+        <div class="col-md-4">rofl</div>
+    </div>
 
 </div>
