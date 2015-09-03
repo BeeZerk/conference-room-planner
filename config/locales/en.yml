@@ -50,6 +50,8 @@ en:
         follow:
           unfollow: "Unfollow"
           follow: "Follow"
+        message:
+          new: "New Message"
     session:
       sign_in_with:
         twitter: "Sign in with Twitter"

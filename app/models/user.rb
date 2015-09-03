@@ -11,6 +11,22 @@ class User < ActiveRecord::Base
   acts_as_likeable
   acts_as_mentionable
 
+  #######################################
+  ### Messageable
+  #######################################
+  acts_as_messageable
+  def name
+    self.username
+  end
+
+  def mailboxer_email(object)
+    #Check if an email should be sent for that object
+    #if true
+    "define_email@on_your.model"
+    #if false
+    #return nil
+  end
+
 
   has_many :identities
   has_and_belongs_to_many :events

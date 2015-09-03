@@ -1,0 +1,32 @@
+<div class="content-wrapper">
+    <div class="content-header">
+        <%= t('nav.profile.follows')%>
+    </div>
+    <div class="content-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default row follower-list" style="padding: 25px">
+                    <% @followees.each do |followee| %>
+                        <div class="col-md-3 ">
+                            <div class="follower">
+                                <div class="avatar">
+                                    <a href="<%= url_for visit_profile_path(followee.uuid)%>">
+                                        <% if !followee.avatar.blank? %>
+                                            <img src="<%= followee.avatar %>">
+                                        <% else %>
+                                            <%= holder_tag '64x64' %>
+                                        <% end %>
+                                    </a>
+                                </div>
+                                <a href="<%= url_for visit_profile_path(followee.uuid)%>">
+                                    <h3><%= followee.username %></h3>
+                                </a>
+                                <%= render_follow_button(followee) %>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

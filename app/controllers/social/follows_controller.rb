@@ -6,7 +6,9 @@ class Social::FollowsController <  ApplicationController
   ### Only user can follow users
   #####
   def toggle_follow
-    current_user.toggle_follow!(@user)
+    if current_user.uuid != @user.uuid
+      current_user.toggle_follow!(@user)
+    end
     redirect_to :back
   end
 

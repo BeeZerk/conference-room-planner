@@ -2,9 +2,6 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
 
-  def show
-    render 'users/visit_profile'
-  end
 
   def add_friend
     if Friendship.find_by_user_id_and_friend_id(current_user.id, @user.id).blank? &&

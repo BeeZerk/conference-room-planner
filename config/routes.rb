@@ -37,12 +37,25 @@ Rails.application.routes.draw do
   ######################################################
   ###################### Profile / user
   ######################################################
-  get 'profile/:uuid' => 'users#show', as: 'visit_profile'
 
-  get 'profile/friends/add/:uuid' => 'users#add_friend', as: 'add_friend'
   ######################
-  ########### Social
+  ########### Profile
   ######################
-  get 'profile/toggle_follow/:uuid' => 'social/follows#toggle_follow', as: 'toggle_follow_user'
+  get 'profile/:uuid' => 'users/profiles#show', as: 'visit_profile'
+
+  ####Follow
+  get 'profile/:uuid/follower' => 'users/profiles#show_follower', as: 'show_follower'
+  get 'profile/:uuid/followees' => 'users/profiles#show_followees', as: 'show_followees'
+  get 'profile/:uuid/toggle_follow/' => 'social/follows#toggle_follow', as: 'toggle_follow_user'
+
+  ####Friendship
+  get 'profile/:uuid/friends/add' => 'users/profiles#add_friend', as: 'add_friend'
+
+  #####messages
+  namespace :social do
+    resource :messages
+    resource :conversations
+  end
+
 end
 

@@ -5,7 +5,7 @@
             &nbsp;
         </div>
         <div class="avatar">
-            <% if !@user.avatar.nil? %>
+            <% if !@user.avatar.blank? %>
                 <img src="<%= @user.avatar %>">
             <% else %>
                 <%= holder_tag '120x120' %>
@@ -20,7 +20,9 @@
 
             <%= render_action_bar %>
             <%= render_friendship_bar %>
-            <%= render_follow_bar %>
+            <%= message_button(@user) %>
+
+            <%= render_follow_button(@user) %>
 
         </div>
 
@@ -28,9 +30,15 @@
     </div>
     <div class="information-bar row">
         <div class="col-md-4">
-            Follower: <%= render_follower_count %>
+            <h1>
+                Follower: <%= render_follower_count %>
+            </h1>
         </div>
-        <div class="col-md-4">lol</div>
+        <div class="col-md-4">
+            <h1>
+                Followees: <%= render_followees_count %>
+            </h1>
+        </div>
         <div class="col-md-4">rofl</div>
     </div>
 

@@ -18,20 +18,23 @@ module ProfileHelper
     end
   end
 
-  def render_follow_bar
-    if @user.uuid == current_user.uuid
-      link_to 'Thats you', root_path
+  def render_follow_button(followee)
+    if current_user.follows?(followee)
+      link_to t('buttons.profile.social.follow.unfollow'), toggle_follow_user_path(followee.uuid), :class => 'btn btn-default follow-btn'
     else
-      if current_user.follows?(@user)
-        link_to t('buttons.profile.social.follow.unfollow'), toggle_follow_user_path
-      else
-        link_to  t('buttons.profile.social.follow.follow'), toggle_follow_user_path
-      end
+      link_to  t('buttons.profile.social.follow.follow'), toggle_follow_user_path(followee.uuid), :class => 'btn btn-default follow-btn'
     end
   end
 
-  def render_follower_count
 
-    link_to @user.followers(User).count, root_path
+  def message_button(receiver)
+    link_to t('buttons.profile.social.message.new'), new_social_messages_path(receiver.uuid), :class => 'btn btn-default follow-btn'
+  end
+
+  def render_follower_count
+    link_to @user.followers(User).count, show_follower_path(@user.uuid)
+  end
+  def render_followees_count
+    link_to @user.followees(User).count, show_followees_path(@user.uuid)
   end
 end
