@@ -4,9 +4,6 @@ class CalendarController < ApplicationController
   before_action :get_calendar, only: [:month]
 
 
-
-
-
   ######################################################
   ###################### Default
   ######################################################

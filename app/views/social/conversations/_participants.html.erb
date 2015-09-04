@@ -1,0 +1,5 @@
+<% conversation.participants.each do |participant| %>
+    <% unless participant.uuid == current_user.uuid %>
+        <img width="64" height="64" src="<%= participant.avatar %>" />
+    <% end %>
+<% end %>

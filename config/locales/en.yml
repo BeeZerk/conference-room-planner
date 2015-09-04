@@ -5,6 +5,14 @@ en:
         save: "Save"
         profile:
               add_friend: "Add friend"
+    messages:
+      btn:
+        send: "Send"
+      recipients: "Recipients"
+      subject: "Subject"
+      body: "Body"
+      title:
+        new: "New"
   invalid_calendar: "This calendar was not found!"
   login: Login
   forgot_password: "Reset password"

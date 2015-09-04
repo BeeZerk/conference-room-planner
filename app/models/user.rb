@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   acts_as_likeable
   acts_as_mentionable
 
+
+
   #######################################
   ### Messageable
   #######################################
@@ -42,6 +44,9 @@ class User < ActiveRecord::Base
 
   before_save do
     self.active = TRUE #todo: DEVELOPMENT
+    if self.avatar.blank?
+      self.avatar = 'http://commonstake.com/assets/default_profile-ecc3c84b92d34c13cd58ceca305f2336.jpg'
+    end
   end
 
   #######################################

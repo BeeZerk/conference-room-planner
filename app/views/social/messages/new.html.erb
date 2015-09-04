@@ -1,49 +1,20 @@
-<% content_for :title do %>
-    <%=t('message.other')%>
-<% end %>
+<% page_header "Start Conversation" %>
 
-<section id="new_message">
-
-
-    <div id="conversation">
-        <h2 class="colorfont">
-            <%= t('mailbox.message.new') %>
-        </h2>
-
-        <%= form_tag social_messages_path, :method => :post , :class => "new_message" do %>
-            <% if @receipt and @receipt.errors.any? %>
-                <div class="error">
-                    <h2>
-                        <%= pluralize(@receipt.errors.count, "error") %> prohibited this message from being sent:
-                    </h2>
-                    <ul>
-                        <% @receipt.errors.full_messages.each do |msg| %>
-                            <li>
-                                <%= msg %>
-                            </li>
-                        <% end %>
-                    </ul>
-                </div>
-            <% end %>
-
-            <%= label_tag t('mailboxer.form.recipients') %>
-
-            <%= hidden_field_tag :_recipients, @recipient.try(:uuid) %>
-
-            <%= label_tag t('mailboxer.form.subject') %>
-
-            <%= text_field_tag :subject,nil %>
-
-            <%= label_tag t('mailboxer.form.body') %>
-
-            <div id="ck_editor" >
-                <%= text_area_tag :body, nil,:rows =>6, :cols=> 53, :maxlength => 5000 %>
-            </div>
-
-            <%= submit_tag t('mailboxer.send'), :name => :send_message, :class => "btn pull-right" %>
-
-        <% end %>
+<%= form_tag social_messages_path, method: :post do %>
+    <div class="form-group">
+        <%= label_tag 'message[subject]', 'Subject' %>
+        <%= text_field_tag 'message[subject]', nil, class: 'form-control', required: true %>
     </div>
 
+    <div class="form-group">
+        <%= label_tag 'message[body]', 'Message' %>
+        <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
+    </div>
 
-</section>
+    <div class="form-group">
+        <%= label_tag 'recipients', 'Choose recipients' %>
+        <%= select_tag 'recipients', recipients_options(@chosen_recipient), multiple: true, class: 'form-control chosen-it' %>
+    </div>
+
+    <%= submit_tag 'Send', class: 'btn btn-primary' %>
+<% end %>

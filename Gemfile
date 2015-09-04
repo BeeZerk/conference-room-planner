@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gem 'filterrific'
-
+gem 'chosen-rails'
+gem "compass-rails", github: "Compass/compass-rails", branch: "master"
 #####
 ### Devise
 #####
@@ -22,11 +23,13 @@ gem 'mailboxer'
 #####
 gem 'bootstrap3-datetimepicker-rails', '~> 4.15.35'
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-will_paginate'
 gem 'font-awesome-rails'
 gem 'animate-rails'
 gem 'sass-rails', '~> 5.0'
 
 
+gem 'will_paginate'
 
 gem 'active_link_to'
 gem 'nested_form'

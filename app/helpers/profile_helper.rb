@@ -28,7 +28,7 @@ module ProfileHelper
 
 
   def message_button(receiver)
-    link_to t('buttons.profile.social.message.new'), new_social_messages_path(receiver.uuid), :class => 'btn btn-default follow-btn'
+    link_to t('buttons.profile.social.message.new'), new_social_message_path(to: receiver.id), class: 'btn btn-default follow-btn'
   end
 
   def render_follower_count
