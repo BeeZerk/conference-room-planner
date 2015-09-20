@@ -1,4 +1,4 @@
-<li class="list-group-item clearfix">
+<li class="list-group-item clearfix <% if conversation.is_unread?(current_user) %> unread <%end%>">
     <%= link_to conversation.subject, social_conversation_path(conversation) %>
 
     <div class="btn-group-vertical pull-right">
@@ -19,6 +19,4 @@
 
     <p><%= conversation.last_message.body %>
         <small>(<span class="text-muted"><%= conversation.last_message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></span>)</small></p>
-
-
 </li>

@@ -1,0 +1,20 @@
+<li class="list-group-item clearfix header-conversation <% if conversation.is_unread?(current_user) %>unread <%end%>">
+  <div class="row">
+    <div class="col-md-3">
+      <% conversation.participants.each do |participant| %>
+          <% unless participant.uuid == current_user.uuid %>
+              <img width="64" height="64" src="<%= participant.avatar %>" />
+          <% end %>
+      <% end %>
+    </div>
+    <div class="col-md-9">
+      <%= link_to conversation.subject, social_conversation_path(conversation) %>
+      <p><%= conversation.last_message.body %>
+        <small>(<span class="text-muted" title="<%= conversation.last_message.created_at.strftime("%-d %B %Y, %H:%M:%S") %>">
+          <%=
+              time_ago_in_words(conversation.last_message.created_at)
+          %>
+        </span>)</small></p>
+    </div>
+  </div>
+</li>

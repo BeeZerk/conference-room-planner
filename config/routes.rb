@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
 
   post 'calendar/ajax_get_events' => 'calendar#ajax_get_events', as: 'ajax_get_events'
-  get 'calendar/ajax_get_eventsg' => 'calendar#ajax_get_events', as: 'ajax_get_eventsg'
+  get 'calendar/ajax_get_events' => 'calendar#ajax_get_events', as: 'ajax_get_eventsg'
 
   ######################################################
   ###################### Events

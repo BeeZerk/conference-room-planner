@@ -10,4 +10,12 @@ module MessagesHelper
     end
     s.html_safe
   end
+
+  def count_unread_messages(user)
+    count = user.mailbox.inbox({:read => false}).count
+    if count != 0
+      return "<div class=\"label label-danger\">#{count}</div>".html_safe
+    end
+
+  end
 end

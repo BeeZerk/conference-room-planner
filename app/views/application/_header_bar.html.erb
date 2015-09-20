@@ -28,20 +28,12 @@
             <li class="dropdown">
                 <a href="#" data-toggle="dropdown" id="notification-dropdown" aria-expanded="false">
                     <em class="fa fa-envelope"></em>
-                    <%= count_unchecked_notifications %>
+                    <%= count_unread_messages(current_user) %>
                 </a>
                 <ul class="notification-dropdown dropdown-menu animated flipInX" aria-labelledby="notification-dropdown">
-                    <li>
-                        <div class="type-ic">
-                          <em class="fa fa-user"></em>
-                        </div>
-                        <div class="title">
-                          5 neue Freundschaftsanfragen
-                        </div>
-                    </li>
-                    <li>
-                        dwqqd
-                    </li>
+                  <ul class="list-group">
+                    <%= render :partial => 'social/conversations/header_conversation', :collection => current_user.mailbox.inbox, :as => :conversation %>
+                  </ul>
                 </ul>
             </li>
             <li>
