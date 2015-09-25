@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: calendars
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  color      :string
+#  token      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  owner_id   :integer
+#
+
 class Calendar < ActiveRecord::Base
 
   has_and_belongs_to_many :users

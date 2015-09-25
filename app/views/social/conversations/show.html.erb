@@ -8,10 +8,11 @@
     <div class="panel-heading"><%= @conversation.subject %></div>
 
     <div class="panel-body">
-        <div class="messages">
-            <% receipts =  @conversation.receipts_for(current_user).inbox %>
+        <div class="messages" id="messages">
+            <% receipts =  @conversation.receipts_for(current_user) %>
             <% receipts.each do |receipt| %>
-                <div class="media">
+
+                <div class="media <% if receipt.mailbox_type == "sentbox"%>message-right<%else%>message-left<%end%>">
                     <% message = receipt.message %>
                     <div class="media-left">
                         <img src="<%= message.sender.avatar %>" width="64" height="64" />
@@ -33,3 +34,10 @@
         <%= submit_tag "Send Message", class: 'btn btn-primary' %>
     <% end %>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        elem = $('messages');
+        elem.scrollTop = elem.scrollHeight;
+    });
+</script>

@@ -1,20 +1,32 @@
-<li class="list-group-item clearfix header-conversation <% if conversation.is_unread?(current_user) %>unread <%end%>">
-  <div class="row">
-    <div class="col-md-3">
-      <% conversation.participants.each do |participant| %>
-          <% unless participant.uuid == current_user.uuid %>
-              <img width="64" height="64" src="<%= participant.avatar %>" />
-          <% end %>
-      <% end %>
-    </div>
-    <div class="col-md-9">
-      <%= link_to conversation.subject, social_conversation_path(conversation) %>
-      <p><%= conversation.last_message.body %>
-        <small>(<span class="text-muted" title="<%= conversation.last_message.created_at.strftime("%-d %B %Y, %H:%M:%S") %>">
-          <%=
-              time_ago_in_words(conversation.last_message.created_at)
-          %>
-        </span>)</small></p>
-    </div>
-  </div>
+<li class="list-group-item nav-item clearfix header-conversation <% if conversation.is_unread?(current_user) %>unread <% end %>">
+        <div class="row">
+            <div class="col-md-3">
+                <% conversation.participants.each do |user| %>
+                    <% if user.id != current_user.id %>
+                        <img width="64" height="64" src="<%= user.avatar %>"/>
+                    <% end %>
+                <%end%>
+
+            </div>
+            <div class="col-md-9">
+                <% conversation.participants.each do |user| %>
+                    <% if user.id != current_user.id %>
+                        <%= user.username %>
+                    <% end %>
+                <%end%>
+
+                <p>
+                    <% if conversation.last_message.sender.uuid  == current_user.uuid %>
+                        <i class="fa fa-long-arrow-left"></i>
+                    <%end%>
+                    <%= truncate(conversation.last_message.body, length: 30) %>
+                    <small>
+                        (<span class="text-muted" title="<%= conversation.last_message.created_at.strftime("%-d %B %Y, %H:%M:%S") %>">
+                            <%= time_ago_in_words(conversation.last_message.created_at) %>
+                        </span>)
+                    </small>
+                </p>
+            </div>
+        </div>
 </li>
+

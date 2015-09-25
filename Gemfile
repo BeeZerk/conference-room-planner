@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gem 'filterrific'
 gem 'chosen-rails'
+gem 'annotate'
 gem "compass-rails", github: "Compass/compass-rails", branch: "master"
 #####
 ### Devise

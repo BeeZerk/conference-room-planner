@@ -1,3 +1,53 @@
+# == Route Map
+#
+#                           Prefix Verb                  URI Pattern                                      Controller#Action
+#          user_omniauth_authorize GET|POST              /users/auth/:provider(.:format)                  users/omniauth_callbacks#passthru {:provider=>/facebook|twitter|linked_in/}
+#           user_omniauth_callback GET|POST              /users/auth/:action/callback(.:format)           users/omniauth_callbacks#:action
+#                    user_password POST                  /users/password(.:format)                        devise/passwords#create
+#                new_user_password GET                   /users/password/new(.:format)                    devise/passwords#new
+#               edit_user_password GET                   /users/password/edit(.:format)                   devise/passwords#edit
+#                                  PATCH                 /users/password(.:format)                        devise/passwords#update
+#                                  PUT                   /users/password(.:format)                        devise/passwords#update
+#         cancel_user_registration GET                   /users/cancel(.:format)                          registrations#cancel
+#                user_registration POST                  /users(.:format)                                 registrations#create
+#            new_user_registration GET                   /users/sign_up(.:format)                         registrations#new
+#           edit_user_registration GET                   /users/edit(.:format)                            registrations#edit
+#                                  PATCH                 /users(.:format)                                 registrations#update
+#                                  PUT                   /users(.:format)                                 registrations#update
+#                                  DELETE                /users(.:format)                                 registrations#destroy
+#                                  GET|POST|PATCH|DELETE /404(.:format)                                   errors#error404
+#                             root GET                   /                                                cuboise#dashboard
+#                   calendar_month GET                   /:token/month(.:format)                          calendar#month
+#                  event_new_small GET                   /event/new_small(.:format)                       events#new_small
+#                 new_user_session GET                   /login(.:format)                                 devise/sessions#new
+#                     user_session POST                  /signin(.:format)                                devise/sessions#create
+#             destroy_user_session GET                   /signout(.:format)                               devise/sessions#destroy
+#                     my_calendars GET                   /calendar(.:format)                              calendar#index
+#                  ajax_get_events POST                  /calendar/ajax_get_events(.:format)              calendar#ajax_get_events
+#                 ajax_get_eventsg GET                   /calendar/ajax_get_events(.:format)              calendar#ajax_get_events
+#                           events POST                  /events(.:format)                                events#create
+#                       new_events GET                   /events/new(.:format)                            events#new
+#                      edit_events GET                   /events/edit(.:format)                           events#edit
+#                                  GET                   /events(.:format)                                events#show
+#                                  PATCH                 /events(.:format)                                events#update
+#                                  PUT                   /events(.:format)                                events#update
+#                                  DELETE                /events(.:format)                                events#destroy
+#                    visit_profile GET                   /profile/:uuid(.:format)                         users/profiles#show
+#                    show_follower GET                   /profile/:uuid/follower(.:format)                users/profiles#show_follower
+#                   show_followees GET                   /profile/:uuid/followees(.:format)               users/profiles#show_followees
+#               toggle_follow_user GET                   /profile/:uuid/toggle_follow(.:format)           social/follows#toggle_follow
+#                       add_friend GET                   /profile/:uuid/friends/add(.:format)             users/profiles#add_friend
+#                  social_messages POST                  /social/messages(.:format)                       social/messages#create
+#               new_social_message GET                   /social/messages/new(.:format)                   social/messages#new
+#        reply_social_conversation POST                  /social/conversations/:id/reply(.:format)        social/conversations#reply
+#      restore_social_conversation POST                  /social/conversations/:id/restore(.:format)      social/conversations#restore
+# mark_as_read_social_conversation POST                  /social/conversations/:id/mark_as_read(.:format) social/conversations#mark_as_read
+# empty_trash_social_conversations DELETE                /social/conversations/empty_trash(.:format)      social/conversations#empty_trash
+#             social_conversations GET                   /social/conversations(.:format)                  social/conversations#index
+#              social_conversation GET                   /social/conversations/:id(.:format)              social/conversations#show
+#                                  DELETE                /social/conversations/:id(.:format)              social/conversations#destroy
+#
+
 Rails.application.routes.draw do
 
   devise_for :users, class_name: 'FormUser', controllers: {sessions: 'sessions',
