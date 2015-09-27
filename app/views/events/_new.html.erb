@@ -1,0 +1,70 @@
+<div class="modal-dialog modal-sm" role="document">
+  <div class="modal-content">
+    <% resource = Event.new%>
+    <%= form_for(resource, url: fast_create_event_path(resource)) do |f| %>
+
+  <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title" id="myModalLabel"<%= t('nav.events.new_events') %></h4>
+    </div>
+    <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <%= f.text_field :title, placeholder: t('model.event.attribute.title'), class: 'form-control' %>
+              </div>
+            </div>
+            <div class="form-group col-md-12">
+              <%= f.text_field :start, placeholder: t('model.event.attribute.start'), class: 'form-control' %>
+            </div>
+            <div class="form-group col-md-12">
+              <%= f.text_field :end, placeholder: t('model.event.attribute.end'), class: 'form-control' %>
+            </div>
+          </div>
+      <script type="text/javascript">
+          $("#event_start").datetimepicker({
+              minDate: moment(),
+              calendarWeeks: true,
+              toolbarPlacement: 'top',
+              icons: {
+                  time: 'fa fa-clock-o',
+                  date: 'fa fa-calendar',
+                  up: 'fa fa-arrow-up',
+                  down: 'fa fa-arrow-down',
+                  previous: 'fa fa-arrow-left',
+                  next: 'fa fa-arrow-right',
+                  today: 'fa fa-arrows-alt',
+                  clear: 'fa fa-trash',
+                  close: 'fa fa-times'
+              }
+          }).on('dp.change', function(selected){
+              startDate = moment(selected.date)
+
+              $('#event_end').data("DateTimePicker").minDate(startDate.add(1,'hours'));
+          });
+          $("#event_end").datetimepicker({
+              minDate: moment(),
+              calendarWeeks: true,
+              toolbarPlacement: 'top',
+              icons: {
+                  time: 'fa fa-clock-o',
+                  date: 'fa fa-calendar',
+                  up: 'fa fa-arrow-up',
+                  down: 'fa fa-arrow-down',
+                  previous: 'fa fa-arrow-left',
+                  next: 'fa fa-arrow-right',
+                  today: 'fa fa-arrows-alt',
+                  clear: 'fa fa-trash',
+                  close: 'fa fa-times'
+              }
+          });
+      </script>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <%= f.submit t('form.buttons.save'), class: 'btn btn-primary' %>
+    </div>
+    <% end %>
+  </div>
+</div>

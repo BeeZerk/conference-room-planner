@@ -16,4 +16,9 @@
 
 class Event < ActiveRecord::Base
   belongs_to :creator, class_name: "User"
+
+  ###############################
+  ######### Validation ##########
+  ###############################
+  validates :start,:end, presence: true
 end

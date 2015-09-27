@@ -12,6 +12,7 @@
                     </header>
 
                     <%= form_for(@event, :html => {class: 'user_registration'}) do |f| %>
+                      <%= @event.errors.full_messages.first if @event.errors.any? %>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">

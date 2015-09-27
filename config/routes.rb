@@ -76,13 +76,13 @@ Rails.application.routes.draw do
 
 
   post 'calendar/ajax_get_events' => 'calendar#ajax_get_events', as: 'ajax_get_events'
-  get 'calendar/ajax_get_events' => 'calendar#ajax_get_events', as: 'ajax_get_eventsg'
+  get 'calendar/ajax_get_events' => 'calendar#ajax_get_events', as: 'ajax_get_eventss'
 
   ######################################################
   ###################### Events
   ######################################################
   resource :events
-  # get 'events' => 'events#index', as: 'events'
+  post 'events/fast/create' => 'events#fast_create_event', as: 'fast_create_event'
 
   ######################################################
   ###################### Profile / user

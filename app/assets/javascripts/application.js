@@ -12,12 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require moment-with-locales.min
 //= require bootstrap
 //= require turbolinks
 //= require chosen-jquery
 //= require holder
 //= require jquery_nested_form
-//= require moment-with-locales.min
 //= require fullcalendar.min
 //= require bootstrap-datetimepicker
 //= require_tree .

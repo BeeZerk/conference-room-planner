@@ -1,6 +1,10 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
+
+  ######################################################
+  ################## Default Methods   #################
+  ######################################################
   # GET /events
   # GET /events.json
   def index
@@ -17,12 +21,6 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
-
-  def new_small
-    @event = Event.new
-    render :layout => false
-  end
-
   # GET /events/1/edit
   def edit
   end
@@ -33,7 +31,7 @@ class EventsController < ApplicationController
 
     prms = event_params
 
-    prms[:start] = Date.parse(event_params[:start])
+    prms[:start] = DateTime.parse(event_params[:start])
     @event = Event.new(prms)
 
     respond_to do |format|
@@ -71,6 +69,30 @@ class EventsController < ApplicationController
     end
   end
 
+
+
+  ######################################################
+  ################## Custom Methods   ##################
+  ######################################################
+
+  def fast_create_event
+    prms = event_params
+
+    @event = Event.new(event_params)
+    @event.start = DateTime.strptime(event_params[:start], '%m/%d/%Y')
+    @event.end = event_params[:end]
+
+    respond_to do |format|
+      if @event.save
+        format.html { redirect_to :back, notice: 'Event was successfully created.' }
+        format.json { render :show, status: :created, location: @event }
+      else
+        format.html { render :new }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
@@ -79,6 +101,8 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :description, :start, :end, :allDay)
+      out = params.require(:event).permit(:title, :description, :start, :end, :allDay)
+
+      out
     end
 end

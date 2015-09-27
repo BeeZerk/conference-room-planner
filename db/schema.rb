@@ -32,10 +32,10 @@ ActiveRecord::Schema.define(version: 20150920160148) do
   add_index "calendars_users", ["calendar_id", "user_id"], name: "index_calendars_users_on_calendar_id_and_user_id"
 
   create_table "events", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",       null: false
     t.boolean  "allDay"
-    t.datetime "start"
-    t.datetime "end"
+    t.datetime "start",       null: false
+    t.datetime "end",         null: false
     t.text     "description"
     t.string   "color"
     t.integer  "creator_id"
