@@ -2,15 +2,17 @@ source 'https://rubygems.org'
 gem 'filterrific'
 gem 'chosen-rails'
 gem 'annotate'
+gem 'rails4-autocomplete'
 gem "compass-rails", github: "Compass/compass-rails", branch: "master"
 #####
-### Devise
+### Authorization
 #####
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
+gem 'friendly_id'
 
 #####
 ### Social Elements
@@ -28,7 +30,7 @@ gem 'bootstrap-will_paginate'
 gem 'font-awesome-rails'
 gem 'animate-rails'
 gem 'sass-rails', '~> 5.0'
-
+gem 'formtastic'
 
 gem 'will_paginate'
 
@@ -52,6 +54,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -82,6 +85,8 @@ group :development, :test do
   gem 'guard-livereload',        :require => false
   gem 'rack-livereload'
   gem 'rb-fsevent',              :require => false
+  gem 'faker'
+
 end
 group :production do
   gem 'pg'

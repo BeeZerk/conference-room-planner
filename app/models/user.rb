@@ -25,9 +25,21 @@
 
 class User < ActiveRecord::Base
   require 'securerandom'
+  extend FriendlyId
+
+  friendly_id :slug_candidates, use: :slugged
+
+  def slug_candidates
+    [
+        :username,
+        [:username, SecureRandom.hex(3)]
+    ]
+  end
 
   devise :omniauthable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable
+
+  has_and_belongs_to_many :events
 
   ###social
   acts_as_follower
@@ -35,8 +47,6 @@ class User < ActiveRecord::Base
   acts_as_liker
   acts_as_likeable
   acts_as_mentionable
-
-
 
   #######################################
   ### Messageable
@@ -64,7 +74,6 @@ class User < ActiveRecord::Base
   #######################################
 
   before_create do
-    self.uuid = SecureRandom.uuid
   end
 
   before_save do
@@ -81,6 +90,8 @@ class User < ActiveRecord::Base
   #######################################
   ### Methods
   #######################################
+  scope :name_like, -> (name) { where("username ilike ?", name)}
+
 
   def twitter
     identities.where( :provider => "twitter" ).first

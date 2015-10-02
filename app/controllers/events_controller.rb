@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-
+  autocomplete :user, :username, :full => true
 
   ######################################################
   ################## Default Methods   #################
@@ -79,8 +79,7 @@ class EventsController < ApplicationController
     prms = event_params
 
     @event = Event.new(event_params)
-    @event.start = DateTime.strptime(event_params[:start], '%m/%d/%Y')
-    @event.end = event_params[:end]
+    @event.creator_id = current_user.id
 
     respond_to do |format|
       if @event.save
@@ -102,7 +101,8 @@ class EventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       out = params.require(:event).permit(:title, :description, :start, :end, :allDay)
-
+      out[:start] = DateTime.strptime(out[:start], '%m.%d.%Y - %I:%M %p')
+      out[:end] = DateTime.strptime(out[:end], '%m.%d.%Y - %I:%M %p')
       out
     end
 end

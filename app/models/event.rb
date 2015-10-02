@@ -17,8 +17,20 @@
 class Event < ActiveRecord::Base
   belongs_to :creator, class_name: "User"
 
+  has_and_belongs_to_many :member, class_name: "User"
+
+  attr_accessor :member_list
+
   ###############################
   ######### Validation ##########
   ###############################
   validates :start,:end, presence: true
+
+
+  ###############################
+  ######### Callbacks  ##########
+  ###############################
+
+
+
 end

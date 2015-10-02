@@ -81,7 +81,9 @@ Rails.application.routes.draw do
   ######################################################
   ###################### Events
   ######################################################
-  resource :events
+  resource :events do
+    get :autocomplete_user_username, :on => :collection
+  end
   post 'events/fast/create' => 'events#fast_create_event', as: 'fast_create_event'
 
   ######################################################

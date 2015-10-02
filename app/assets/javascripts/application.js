@@ -12,12 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/autocomplete
+//= require jquery_nested_form
+//= require chosen-jquery
+
 //= require moment-with-locales.min
 //= require bootstrap
 //= require turbolinks
-//= require chosen-jquery
 //= require holder
-//= require jquery_nested_form
 //= require fullcalendar.min
 //= require bootstrap-datetimepicker
+
+//= require tag_this
+
+//= require autocomplete-rails
 //= require_tree .

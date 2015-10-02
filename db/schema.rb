@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150920160148) do
+ActiveRecord::Schema.define(version: 20150930070418) do
 
   create_table "calendars", force: :cascade do |t|
     t.string   "name"
@@ -45,6 +45,12 @@ ActiveRecord::Schema.define(version: 20150920160148) do
 
   add_index "events", ["creator_id"], name: "index_events_on_creator_id"
 
+  create_table "events_users", force: :cascade do |t|
+    t.integer "event_id",                 null: false
+    t.integer "user_id",                  null: false
+    t.boolean "admin",    default: false
+  end
+
   create_table "follows", force: :cascade do |t|
     t.string   "follower_type"
     t.integer  "follower_id"
@@ -57,6 +63,19 @@ ActiveRecord::Schema.define(version: 20150920160148) do
 
   add_index "follows", ["followable_id", "followable_type"], name: "fk_followables"
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows"
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "friendships", force: :cascade do |t|
     t.integer  "user_id"
@@ -175,24 +194,24 @@ ActiveRecord::Schema.define(version: 20150920160148) do
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "uuid",                   limit: 36
-    t.string   "username",                                          null: false
+    t.string   "username",                               null: false
     t.string   "avatar"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                             default: "",    null: false
-    t.string   "encrypted_password",                default: "",    null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                     default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.boolean  "admin",                             default: false
+    t.boolean  "admin",                  default: false
     t.string   "attachment"
-    t.boolean  "active",                            default: false
+    t.boolean  "active",                 default: false
+    t.string   "slug"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
