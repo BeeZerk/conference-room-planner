@@ -1,1 +1,20 @@
-Dashboard lol
+<div class="content-wrapper">
+    <div class="content-header">
+        <%= t('nav.dashboard')%>
+        <!--<div class="content-actions"><button class="btn btn-default">Test 1</button></div>-->
+    </div>
+    <div class="content-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><%= t('dashboard.panel.event.events_today')%></h3>
+                    </div>
+                    <div class="panel-body">
+                        <%= render partial: 'events/events_list', locals: { events: current_user.today_events, empty_list_error: t('model.event.messages.no_events_today')}%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,8 +3,8 @@ class Social::MessagesController < ApplicationController
   require 'Mailboxer'
 
   def new
-    @recipient = User.find_by_uuid(params[:to])
-    if current_user.uuid == @recipient.uuid
+    @recipient = User.friendly.find(params[:to])
+    if current_user.id == @recipient.id
       flash[:error] = t('errors.messages.not_allowed')
 
       redirect_to :back

@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  autocomplete :user, :username, :full => true
+  autocomplete :user, :slug, :full => true
 
   ######################################################
   ################## Default Methods   #################
@@ -76,10 +76,15 @@ class EventsController < ApplicationController
   ######################################################
 
   def fast_create_event
-    prms = event_params
-
     @event = Event.new(event_params)
     @event.creator_id = current_user.id
+
+    member = Array.new
+
+    event_params[:member_list].split(",").map {|user_slug|
+      member.push(User.find_by_slug(user_slug))
+    }
+    @event.member << member
 
     respond_to do |format|
       if @event.save
@@ -92,6 +97,13 @@ class EventsController < ApplicationController
     end
   end
 
+  def events_today
+    @selected = Item.where(:category_id => params[:cat_id])
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
@@ -100,7 +112,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      out = params.require(:event).permit(:title, :description, :start, :end, :allDay)
+      out = params.require(:event).permit(:title, :description, :start, :end, :allDay, :member_list)
       out[:start] = DateTime.strptime(out[:start], '%m.%d.%Y - %I:%M %p')
       out[:end] = DateTime.strptime(out[:end], '%m.%d.%Y - %I:%M %p')
       out

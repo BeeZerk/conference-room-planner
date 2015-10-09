@@ -3,10 +3,10 @@
 # Table name: events
 #
 #  id          :integer          not null, primary key
-#  title       :string
+#  title       :string           not null
 #  allDay      :boolean
-#  start       :datetime
-#  end         :datetime
+#  start       :datetime         not null
+#  end         :datetime         not null
 #  description :text
 #  color       :string
 #  creator_id  :integer

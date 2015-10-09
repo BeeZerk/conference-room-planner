@@ -68,8 +68,8 @@
                 </a>
                 <ul id="second" class="nav sidebar-subnav <%= (is_active_link?('/profile') ? 'collapsed collapse in': 'collapse')%>">
                     <li class="sidebar-subnav-header"><%= t('nav.profile.profile')%></li>
-                    <li class="<%= (is_active_link?(visit_profile_path(:uuid => current_user.uuid)) ? 'active': '')%>">
-                        <a href="<%= url_for visit_profile_path(:uuid => current_user.uuid) %>">
+                    <li class="<%= (is_active_link?(visit_profile_path(current_user)) ? 'active': '')%>">
+                        <a href="<%= url_for visit_profile_path(current_user) %>">
                             <span><%= t('nav.profile.my')%></span>
                         </a>
                     </li>

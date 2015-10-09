@@ -6,7 +6,7 @@ class Social::FollowsController <  ApplicationController
   ### Only user can follow users
   #####
   def toggle_follow
-    if current_user.uuid != @user.uuid
+    if current_user.id != @user.id
       current_user.toggle_follow!(@user)
     end
     redirect_to :back
@@ -15,7 +15,7 @@ class Social::FollowsController <  ApplicationController
 
   private
   def set_user
-    @user = User.find_by_uuid(params[:uuid])
+    @user = User.friendly.find(params[:slug])
     if @user.blank?
       raise ActionController::RoutingError.new('Not Found')
     end

@@ -3,7 +3,6 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  uuid                   :string(36)
 #  username               :string           not null
 #  avatar                 :string
 #  created_at             :datetime
@@ -21,6 +20,7 @@
 #  admin                  :boolean          default(FALSE)
 #  attachment             :string
 #  active                 :boolean          default(FALSE)
+#  slug                   :string
 #
 
 class FormUser < User

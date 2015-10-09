@@ -16,8 +16,6 @@ class CalendarController < ApplicationController
   def ajax_get_events
     test = params[:start_date]
 
-    lol = DateTime.parse(test).to_i
-
     render json: Event.all
   end
 

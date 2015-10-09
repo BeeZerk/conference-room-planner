@@ -32,6 +32,8 @@ en:
         end: "End"
         start: "Start"
         all_day: "All Day"
+      messages:
+        no_events_today: "No Events for today. You're Free ;-)"
   password_repeat: "Repeat password"
   register_button: "Sign up"
   main_navigation_header: "Main Navigation"
@@ -63,3 +65,9 @@ en:
     session:
       sign_in_with:
         twitter: "Sign in with Twitter"
+  dashboard:
+    panel:
+      event:
+        next_events: "Upcoming Events"
+        events_today: "Events Today"
+

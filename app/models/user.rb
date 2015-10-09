@@ -3,7 +3,6 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  uuid                   :string(36)
 #  username               :string           not null
 #  avatar                 :string
 #  created_at             :datetime
@@ -21,6 +20,7 @@
 #  admin                  :boolean          default(FALSE)
 #  attachment             :string
 #  active                 :boolean          default(FALSE)
+#  slug                   :string
 #
 
 class User < ActiveRecord::Base
@@ -28,10 +28,12 @@ class User < ActiveRecord::Base
   extend FriendlyId
 
   friendly_id :slug_candidates, use: :slugged
+  obfuscate_id
 
   def slug_candidates
     [
         :username,
+        [:username, SecureRandom.hex(3)],
         [:username, SecureRandom.hex(3)]
     ]
   end
@@ -39,7 +41,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable
 
-  has_and_belongs_to_many :events
+
 
   ###social
   acts_as_follower
@@ -52,6 +54,7 @@ class User < ActiveRecord::Base
   ### Messageable
   #######################################
   acts_as_messageable
+
   def name
     self.username
   end
@@ -63,7 +66,9 @@ class User < ActiveRecord::Base
     #if false
     #return nil
   end
-
+  #######################################
+  ### Associations
+  #######################################
 
   has_many :identities
   has_and_belongs_to_many :events
@@ -84,14 +89,23 @@ class User < ActiveRecord::Base
   end
 
   #######################################
+  ### Scope
+  #######################################
+
+
+
+  #######################################
+  ### Callbacks
+  #######################################
+
+
+  #######################################
   ### Validation
   #######################################
 
   #######################################
   ### Methods
   #######################################
-  scope :name_like, -> (name) { where("username ilike ?", name)}
-
 
   def twitter
     identities.where( :provider => "twitter" ).first
@@ -107,6 +121,13 @@ class User < ActiveRecord::Base
 
   def facebook_client
     @facebook_client ||= Facebook.client( access_token: facebook.accesstoken )
+  end
+
+  #######################################
+  ### Instance Methods
+  #######################################
+  def today_events
+    Event.where(:start => (Time.now..Time.now.end_of_day)).order('start  ASC')
   end
 
 

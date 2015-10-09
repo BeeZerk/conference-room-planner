@@ -27,6 +27,15 @@
                     </div>
                 </div>
                 <script type="text/javascript">
+                    $(function() {
+                        $('#new_event').submit(function() {
+                            var obj = $('#event_member_list')
+                            var lol = JSON.stringify(obj.data('tags'));
+                            obj.val(obj.data('tags').toJSON());
+                            return false; // return false to cancel form action
+                        });
+                    });
+
                     $("#event_start").datetimepicker({
                         minDate: moment(),
                         calendarWeeks: true,
@@ -67,11 +76,12 @@
                     });
 
                     $(document).ready(function () {
-                        $("#event_member_list").tagThis({
-                            autocompleteSource : '<%= url_for(autocomplete_user_username_events_path)%>',
-                            noDuplicates: true,
-                            height: '100%',
-                            width: '100%'
+                        $("#event_member_list").tagsInput({
+                            autocomplete_url : '<%= url_for(autocomplete_user_slug_events_path)%>',
+                            freeInput: false,
+                            height:'100px',
+                            width:'100%',
+                            autocomplete: {selectFirst:true,width:'100px',autoFill:true}
                         });
                     });
 

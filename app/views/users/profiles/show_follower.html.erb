@@ -10,7 +10,7 @@
                         <div class="col-md-3 ">
                             <div class="follower">
                                 <div class="avatar">
-                                    <a href="<%= url_for visit_profile_path(follower.uuid)%>">
+                                    <a href="<%= url_for visit_profile_path(follower)%>">
                                         <% if !follower.avatar.blank? %>
                                             <img src="<%= follower.avatar %>">
                                         <% else %>
@@ -18,10 +18,10 @@
                                         <% end %>
                                     </a>
                                 </div>
-                                <a href="<%= url_for visit_profile_path(follower.uuid)%>">
+                                <a href="<%= url_for visit_profile_path(follower)%>">
                                     <h3><%= follower.username %></h3>
                                 </a>
-                                <% if follower.uuid == current_user.uuid %>
+                                <% if follower.id == current_user.id %>
                                     <div class="btn btn-default follow-btn">Thats you</div>
                                 <% else %>
                                     <%= render_follow_button(follower) %>
