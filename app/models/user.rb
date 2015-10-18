@@ -25,18 +25,6 @@
 
 class User < ActiveRecord::Base
   require 'securerandom'
-  extend FriendlyId
-
-  friendly_id :slug_candidates, use: :slugged
-  obfuscate_id
-
-  def slug_candidates
-    [
-        :username,
-        [:username, SecureRandom.hex(3)],
-        [:username, SecureRandom.hex(3)]
-    ]
-  end
 
   devise :omniauthable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable
@@ -77,8 +65,14 @@ class User < ActiveRecord::Base
   #######################################
   ### Callbacks
   #######################################
-
   before_create do
+    if self.slug.nil?
+      self.slug = "#{self.username} #{SecureRandom.hex(3)}".parameterize
+    end
+
+    if self.uuid.nil?
+      self.uuid = SecureRandom.hex
+    end
   end
 
   before_save do
@@ -86,6 +80,10 @@ class User < ActiveRecord::Base
     if self.avatar.blank?
       self.avatar = 'http://commonstake.com/assets/default_profile-ecc3c84b92d34c13cd58ceca305f2336.jpg'
     end
+  end
+
+  def to_param
+    uuid
   end
 
   #######################################

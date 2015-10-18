@@ -13,7 +13,6 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 gem 'friendly_id'
-gem 'obfuscate_id'
 
 #####
 ### Social Elements

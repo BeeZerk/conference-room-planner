@@ -48,12 +48,12 @@ Rails.application.routes.draw do
   get 'profile/:id' => 'users/profiles#show', as: 'visit_profile'
 
   ####Follow
-  get 'profile/:slug/follower' => 'users/profiles#show_follower', as: 'show_follower'
-  get 'profile/:slug/followees' => 'users/profiles#show_followees', as: 'show_followees'
-  get 'profile/:slug/toggle_follow/' => 'social/follows#toggle_follow', as: 'toggle_follow_user'
+  get 'profile/:id/follower' => 'users/profiles#show_follower', as: 'show_follower'
+  get 'profile/:id/followees' => 'users/profiles#show_followees', as: 'show_followees'
+  get 'profile/:id/toggle_follow/' => 'social/follows#toggle_follow', as: 'toggle_follow_user'
 
   ####Friendship
-  get 'profile/:slug/friends/add' => 'users/profiles#add_friend', as: 'add_friend'
+  get 'profile/:id/friends/add' => 'users/profiles#add_friend', as: 'add_friend'
 
   #####messages
   namespace :social do
