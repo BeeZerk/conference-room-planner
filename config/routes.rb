@@ -19,6 +19,17 @@ Rails.application.routes.draw do
     post 'signin' => 'devise/sessions#create', :as => :user_session
     get 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
   end
+
+  ######################################################
+  ###################### API
+  ######################################################
+  namespace :api do
+    namespace :v1 do
+      get 'events/create/fast' => 'events#create_fast'
+    end
+  end
+
+
   ######################################################
   ###################### Calendar
   ######################################################

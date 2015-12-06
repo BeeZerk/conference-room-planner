@@ -5,7 +5,7 @@ $(document).ready ->
   $('.chosen-it').chosen()
 	$('#collapse-sidemenu').click ->
 		$('body').toggleClass('aside-collapsed')
-	return
+		return
 	$('body.aside-collapsed li').mouseover ->
 		alert('lol')
-	return
+		return

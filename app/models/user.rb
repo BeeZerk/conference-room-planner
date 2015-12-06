@@ -125,7 +125,9 @@ class User < ActiveRecord::Base
   ### Instance Methods
   #######################################
   def today_events
-    Event.where(:start => (Time.now..Time.now.end_of_day)).order('start  ASC')
+    x = Event.where(:start => (DateTime.now.beginning_of_day..DateTime.now.end_of_day)).order('start  ASC')
+    Event.where(:start => (DateTime.now.beginning_of_day..DateTime.now.end_of_day)).order('start  ASC')
+    Event.all
   end
 
 
