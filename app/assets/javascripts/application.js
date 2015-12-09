@@ -27,3 +27,5 @@
 
 //= require autocomplete-rails
 //= require_tree .
+//= require websocket_rails/main
+

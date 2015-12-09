@@ -34,6 +34,12 @@
         <span>Copyright Bemigho 2015</span>
     </footer>
 </div>
+<script type="text/javascript">
+  var dispatcher = new WebSocketRails('localhost:12345/websocket');
 
+  dispatcher.on_open = function(data){
+    console.log(data.connection_id);
+  };
+</script>
 </body>
 </html>

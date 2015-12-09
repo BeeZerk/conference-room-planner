@@ -31,6 +31,8 @@ class Event < ActiveRecord::Base
   ######### Callbacks  ##########
   ###############################
 
+  after_create :test
+
   ###############################
   #########   Scopes   ##########
   ###############################
@@ -41,6 +43,12 @@ class Event < ActiveRecord::Base
 
   scope :sort_by_newest, -> { order(start: :desc)}
 
+  ###############################
+  #########   Websocket   #######
+  ###############################
 
+  def test
+    WebsocketRails.users[self.creator.id].send_message('new_notification', {:message => 'you\'ve got an upvote '})
+  end
 
 end
